@@ -1,0 +1,148 @@
+= render partial: "layouts/shared/component_drawer"
+- basic_list = "<ul class=\"list-group list-outlined\">\n  <li class=\"list-group-item\">List Item One</li>\n  <li class=\"list-group-item\">List Item Two</li>\n  <li class=\"list-group-item\">List Item Three</li>\n  <li class=\"list-group-item\">List Item Four</li>\n  <li class=\"list-group-item\">List Item Five</li>\n  <li class=\"list-group-item\">List Item Six</li>\n</ul>"
+- elevated_list = "<ul class=\"list-group list-elevated list-outlined\">\n  <li class=\"list-group-item\">List Item One</li>\n  <li class=\"list-group-item\">List Item Two</li>\n  <li class=\"list-group-item\">List Item Three</li>\n  <li class=\"list-group-item\">List Item Four</li>\n  <li class=\"list-group-item\">List Item Five</li>\n  <li class=\"list-group-item\">List Item Six</li>\n</ul>"
+- icon_list = "<ul class=\"list-group\">\n  <li class=\"list-group-item\">\n    <i class=\"material-icons\">theaters</i>\n    Attractions\n  </li>\n  <li class=\"list-group-item\">\n    <i class=\"material-icons\">local_dining</i>\n    Dining\n  </li>\n  <li class=\"list-group-item\">\n    <i class=\"material-icons\">edit</i>\n    Education\n  </li>\n  <li class=\"list-group-item\">\n    <i class=\"material-icons\">favorite</i>\n    Health\n  </li>\n  <li class=\"list-group-item\">\n    <i class=\"material-icons\">group</i>\n    Family\n  </li>\n  <li class=\"list-group-item\">\n    <i class=\"material-icons\">sports_basketball</i>\n    Sports\n  </li>\n</ul>"
+- product_list = "<div class=\"list-group\">\n  <div class=\"list-group-item\">\n    <img class=\"list-thumbnail\" src=\"...\">\n    <div>\n      <p class=\"m-0\">Pencil</p>\n      <small>In-stock</small>\n    </div>\n  </div>\n  <div class=\"list-group-item\">\n    <img class=\"list-thumbnail\" src=\"...\">\n    <div>\n      <p class=\"m-0\">Pencil</p>\n      <small>In-stock</small>\n    </div>\n  </div>\n  <div class=\"list-group-item\">\n    <img class=\"list-thumbnail\" src=\"...\">\n    <div>\n      <p class=\"m-0\">Pencil</p>\n      <small>In-stock</small>\n    </div>\n  </div>\n  <div class=\"list-group-item\">\n    <img class=\"list-thumbnail\" src=\"...\">\n    <div>\n      <p class=\"m-0\">Pencil</p>\n      <small>In-stock</small>\n    </div>\n  </div>\n</div>"
+- step_1 = "<ul>\n  <li>List Item One</li>\n  <li>List Item Two</li>\n</ul>"
+- step_2 = "<ul class=\"list-group\">\n  <li>List Item One</li>\n  <li>List Item Two</li>\n</ul>"
+- step_3 = "<ul class=\"list-group\">\n  <li class=\"list-group-item\">List Item One</li>\n  <li class=\"list-group-item\">List Item Two</li>\n</ul>"
+%section.grid-12
+  .width-12.grid-column-start-lg-2.width-lg-8
+    %h1 Lists
+    %p.h4
+      Lists are continuous, vertical indexes of text or images.
+    %p Lists are a continuous group of text or images. They are composed of items containing primary and supplemental actions, which are represented by icons and text.
+  .grid-column-start-lg-11.width-lg-2.d-none.d-lg-block
+    .list-group.documentation-subnavigation
+      = link_to 'Sample', '#sample', class: 'list-group-item'
+      = link_to 'Usage', '#usage', class: 'list-group-item'
+  #sample.linkable-section.width-12.grid-12
+    %h2 Sample
+    .width-12.grid-column-start-lg-2.width-lg-4
+      %p.h3.mt-0 Basic List
+      %ul.list-group.list-outlined
+        - ["One", "Two", "Three", "Four", "Five", "Six"].each do |n|
+          %li.list-group-item
+            List Item #{n}
+      = raw Pygments.highlight(basic_list, :lexer => 'html')
+    .width-12.grid-column-start-lg-6.width-lg-4
+      %p.h3.mt-0 Elevated List
+      %ul.list-group.list-elevated.list-outlined
+        - ["One", "Two", "Three", "Four", "Five", "Six"].each do |n|
+          %li.list-group-item
+            List Item #{n}
+      = raw Pygments.highlight(elevated_list, :lexer => 'html')
+    .width-12.grid-column-start-lg-2.width-lg-4
+      %p.h3.mt-0 Icon Extended List
+      %ul.list-group
+        %li.list-group-item
+          %i.material-icons theaters
+          Attractions
+        %li.list-group-item
+          %i.material-icons local_dining
+          Dining
+        %li.list-group-item
+          %i.material-icons edit
+          Education
+        %li.list-group-item
+          %i.material-icons favorite
+          Health
+        %li.list-group-item
+          %i.material-icons group
+          Family
+        %li.list-group-item
+          %i.material-icons sports_basketball
+          Sports
+    .width-12.grid-column-start-lg-6.width-lg-4
+      %p.h3.mt-0 Product List
+      .list-group
+        .list-group-item
+          = image_tag "sample-image-square.webp", class:'list-thumbnail'
+          %div
+            %p.m-0 Pencil
+            %small In-stock
+        .list-group-item
+          = image_tag "sample-image-square.webp", class:'list-thumbnail'
+          %div
+            %p.m-0 Pencil
+            %small In-stock
+        .list-group-item
+          = image_tag "sample-image-square.webp", class:'list-thumbnail'
+          %div
+            %p.m-0 Pencil
+            %small In-stock
+        .list-group-item
+          = image_tag "sample-image-square.webp", class:'list-thumbnail'
+          %div
+            %p.m-0 Pencil
+            %small In-stock
+    .width-12.grid-column-start-lg-2.width-lg-4
+      = raw Pygments.highlight(icon_list, :lexer => 'html')
+    .width-12.width-lg-4
+      = raw Pygments.highlight(product_list, :lexer => 'html')
+%section
+  #usage.linkable-section.grid-12
+    .width-12.grid-column-start-lg-2.width-lg-8
+      %h2 Include a List Component
+      %ol
+        %li
+          Code the
+          = succeed "," do
+            %pre div
+          %pre ol
+          or
+          %pre ul
+          element. Include any desired attributes and values, such as an id or event handler appropriately.
+          %br
+          = raw Pygments.highlight(step_1, :lexer => 'html')
+        %li
+          Add the
+          %pre list-group
+          class to the list or div.
+          %br
+          = raw Pygments.highlight(step_2, :lexer => 'html')
+        %li
+          List group item can be a link or a list item. Add
+          %pre list-group-item
+          class to the child elements.
+          %br
+          = raw Pygments.highlight(step_3, :lexer => 'html')
+      %h3 Configuration Options
+      %p The table below lists the available classes and their effects.
+      %table
+        %thead
+          %tr
+            %th Class
+            %th Effects
+            %th Remarks
+        %tbody
+          %tr
+            %td
+              %span
+                %pre .list-group
+            %td Defines list-group component
+            %td Required
+          %tr
+            %td
+              %span
+                %pre .list-group-item
+            %td Defined list group items.
+            %td Required
+          %tr
+            %td
+              %span
+                %pre .list-outlined
+            %td Add outline to the list group.
+            %td Optional
+          %tr
+            %td
+              %span
+                %pre .list-elevated
+            %td Add elevation to the list group.
+            %td Optional
+          %tr
+            %td
+              %span
+                %pre .list-thumbnail
+            %td Styles leading image as a thumbnail.
+            %td Optional

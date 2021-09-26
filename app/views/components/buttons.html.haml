@@ -1,0 +1,208 @@
+= render partial: "layouts/shared/component_drawer"
+- text_buttons = "<!-- Button Default Styles -->\n<button name=\"button\" type=\"submit\">Button</button>\n<!-- Link with Button Design -->\n<a href=\"https://www.example.com\" class=\"button\">Button</a>\n<!-- Input Button -->\n<input type=\"submit\" name=\"commit\" value=\"button\" class=\"button\">"
+- button_or_link = "<button>Button</button>\n<a href=\"https://www.button.com\"> Button </a>"
+- additional_classes = "<!-- Button Default Styles -->\n<button name=\"button\" type=\"submit\">Button</button>\n<!-- Colored Button Outline Styles -->\n<button name=\"button\" type=\"submit\" class=\"button-colored-outline\">Button</button>\n<!-- Colored Button Styles -->\n<button name=\"button\" type=\"submit\" class=\"button-colored\">Button</button>"
+- outline_buttons = "<!-- Colored Button Outline Styles -->\n<button name=\"button\" type=\"submit\" class=\"button-colored-outline\">Button</button>\n<!-- Alternate Colored Button Outline Styles -->\n<a href=\"https://www.example.com\" class=\"button button-colored-alt-outline\">Button</a>"
+- context_buttons = "<!-- Context Buttons -->\n<!-- Information Button -->\n<button name=\"button\" type=\"submit\" class=\"button button-info\">Button</button>\n<!-- Danger Button -->\n<button name=\"button\" type=\"submit\" class=\"button button-info\">Button</button>\n<!-- Warning Button -->\n<button name=\"button\" type=\"submit\" class=\"button button-info\">Button</button>\n<!-- Success Button -->\n<button name=\"button\" type=\"submit\" class=\"button button-info\">Button</button>\n\n<!-- Context Buttons with Outline -->\n<!-- Information Button Outline -->\n<button name=\"button\" type=\"submit\" class=\"button button-info-outline\">Button</button>\n<!-- Danger Button Outline -->\n<button name=\"button\" type=\"submit\" class=\"button button-danger-outline\">Button</button>\n<!-- Warning Button Outline -->\n<button name=\"button\" type=\"submit\" class=\"button button-warning-outline\">Button</button>\n<!-- Success Button Outline -->\n<button name=\"button\" type=\"submit\" class=\"button button-success-outline\">Button</button>"
+%section.grid-12
+  .width-12.grid-column-start-lg-2.width-lg-8
+    #top.linkable-section
+      %h1 Buttons
+      %p.h4
+        Buttons allow users to take action, and make choices, with a single tap.
+  .grid-column-start-lg-11.width-lg-2.d-none.d-lg-block
+    .list-group.documentation-subnavigation
+      = link_to 'Types', '#types', class: 'list-group-item'
+      = link_to 'Principles', '#principles', class: 'list-group-item'
+      = link_to 'Text Buttons', '#text-buttons', class: 'list-group-item'
+      = link_to 'Outlined Buttons', '#outlined-buttons', class: 'list-group-item'
+      = link_to 'Contained Buttons', '#contained-buttons', class: 'list-group-item'
+      = link_to 'Context Buttons', '#context-buttons', class: 'list-group-item'
+      = link_to 'Usage', '#usage', class: 'list-group-item'
+  .width-12.grid-column-start-lg-2.width-lg-8
+    #types.linkable-section
+      .grid-sm-1.grid-md-3
+        .width-3
+          %h2 Types
+        %div
+          %p= button_tag "Button", class: 'button'
+          %h3 Text Button
+          %p Text buttons are typically used for less important actions.
+        %div
+          %p= button_tag "Button", class: 'button button-colored-outline'
+          %h3 Outlined Button
+          %p Outlined buttons are used for more emphasis than text buttons due to the stroke.
+        %div
+          %p= button_tag "Button", class: 'button button-colored'
+          %h3 Contained Button
+          %p Contained buttons have more emphasis, as they use a color fill and shadow.
+  .width-12.grid-column-start-lg-2.width-lg-8
+    #principles.linkable-section
+      .grid-sm-1.grid-md-3
+        .width-3
+          %h2 Principles
+        %div
+          = image_tag "buttons/identifiable.webp", class: 'img-fluid'
+          %h3 Identifiable
+          %p Buttons should indicate that they can trigger an action.
+        %div
+          = image_tag "buttons/findable.webp", class: 'img-fluid'
+          %h3 Findable
+          %p Buttons should be easy to find among other elements, including other buttons.
+        %div
+          = image_tag "responsive.webp", class: 'img-fluid'
+          %h3 Clear
+          %p A button’s action and state should be clear.
+  .width-12.grid-column-start-lg-2.width-lg-8.grid-sm-1
+    #text-buttons.linkable-section
+      %h2 Text Buttons
+      %h3 Usage
+      %p Text buttons are typically used for less-pronounced actions, including those located:
+      %ul
+        %li In dialogs
+        %li In cards
+      %p In cards, text buttons help maintain an emphasis on card content.
+      = image_tag "buttons/text_button_card.webp", class: 'img-fluid'
+      %p
+        In container, text buttons maintain context with the surrounding content since the text button does not have a
+        container.
+      = image_tag "buttons/text_button_dialog.webp", class: 'img-fluid'
+      %h3 Sample
+      = button_tag "Button"
+      = link_to "Button", "https://www.example.com", class: 'button'
+      = submit_tag :button, class: 'button'
+      = raw Pygments.highlight(text_buttons, :lexer => 'html')
+  .width-12.grid-column-start-lg-2.width-lg-8.grid-sm-1
+    #outlined-buttons.linkable-section
+      %h2 Outlined Buttons
+      %h3 Usage
+      %p
+        Outlined buttons are medium-emphasis buttons. They contain actions that are important, but aren’t the primary
+        action in an app.
+      %p
+        %strong Alternatives
+      %p
+        Outlined buttons are also a lower emphasis alternative to contained buttons, or a higher emphasis alternative
+        to text buttons.
+      = image_tag "buttons/outline_button_card.webp", class: 'img-fluid'
+      %h3 Sample
+      = button_tag "Button", class: 'button-colored-outline'
+      = link_to "Button", "https://www.example.com", class: 'button button-colored-alt-outline'
+      = raw Pygments.highlight(outline_buttons, :lexer => 'html')
+  .width-12.grid-column-start-lg-2.width-lg-8.grid-sm-1
+    #contained-buttons.linkable-section
+      %h2 Contained Buttons
+      %h3 Usage
+      %p
+        Contained buttons are high-emphasis, distinguished by their use of elevation and fill. They contain actions
+        that are primary to your app.
+      = image_tag "buttons/contained_button_card.webp", class: 'img-fluid'
+      %h3 Sample
+      = button_tag "Button", class: 'button-colored'
+      = link_to "Button", "https://www.example.com", class: 'button button-colored-alt'
+      = raw Pygments.highlight(outline_buttons, :lexer => 'html')
+  .width-12.grid-column-start-lg-2.width-lg-8.grid-sm-1
+    #context-buttons.linkable-section
+      %h2 Context Buttons
+      %h3 Usage
+      %p Context buttons are colored according to the function it performs - Info, Warning, Danger, and Success.
+      %h3 Sample
+      = button_tag "Button", class: 'button button-info'
+      = button_tag "Button", class: 'button button-danger'
+      = button_tag "Button", class: 'button button-warning'
+      = button_tag "Button", class: 'button button-success'
+      %br
+      %br
+      = button_tag "Button", class: 'button button-info-outline'
+      = button_tag "Button", class: 'button button-danger-outline'
+      = button_tag "Button", class: 'button button-warning-outline'
+      = button_tag "Button", class: 'button button-success-outline'
+      = raw Pygments.highlight(context_buttons, :lexer => 'html')
+  .width-12.grid-column-start-lg-2.width-lg-8
+    #usage.linkable-section
+      %h2 Include a Button Component
+      %ol
+        %li
+          Code a
+          %pre button
+          or
+          %pre a
+          element. Include any desired attributes and values, such as an id or event handler, and add a text caption
+          appropriately.
+          %br
+          = raw Pygments.highlight(button_or_link, :lexer => 'html')
+        %li
+          Add the one or more Pragma classes, separated by spaces, to the element using the class attribute.
+          %br
+          = raw Pygments.highlight(additional_classes, :lexer => 'html')
+      %h3 Configuration Options
+      %p The table below lists the available classes and their effects.
+      %table
+        %thead
+          %tr
+            %th Class
+            %th Effects
+            %th Remarks
+        %tbody
+          %tr
+            %td
+              %span
+                %pre button
+            %td Defines button component
+            %td Required
+          %tr
+            %td
+              %span
+                %pre button-colored
+                %br
+                %pre button-colored-alt
+            %td
+              Adds background color to the button.
+              %br
+              Primary - Default&nbsp;,&nbsp;Alt - Alternate
+            %td Optional
+          %tr
+            %td
+              %span
+                %pre button-info
+                %br
+                %pre button-danger
+                %br
+                %pre button-warning
+                %br
+                %pre button-success
+            %td
+              Adds context colors to the buttons.
+              %br
+              Same classes can be used with
+              = succeed "." do
+                %pre button-fab
+            %td Optional
+          %tr
+            %td
+              %span
+                %pre button-colored-outline
+                %br
+                %pre button-colored-alt-outline
+            %td
+              Adds outline color to the button.
+              %br
+              Primary - Default&nbsp;,&nbsp;Alt - Alternate
+            %td Optional
+          %tr
+            %td
+              %span
+                %pre button-info-outline
+                %br
+                %pre button-danger-outline
+                %br
+                %pre button-warning-outline
+                %br
+                %pre button-success-outline
+            %td
+              Adds context colors to the buttons outlines.
+              %br
+              Same classes can be used with
+              = succeed "." do
+                %pre button-fab
+            %td Optional

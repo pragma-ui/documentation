@@ -1,0 +1,172 @@
+= render partial: "layouts/shared/component_drawer"
+- regular_table = "<table>\n  <thead>\n    <tr>\n      <th>First Name</th>\n      <th>Last Name</th>\n      <th>Email</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td>John</td>\n      <td>Doe</td>\n      <td>jdoe@example.com</td>\n    </tr>\n    <tr>\n    <td>Mark</td>\n      <td>Otto</td>\n      <td>motto@example.com</td>\n    </tr>\n    <tr>\n    <td>Larry</td>\n      <td>Page</td>\n      <td>lpage@example.com</td>\n    </tr>\n  </tbody>\n</table>"
+- elevated_table = "<table class=\"elevated-table\">\n  <thead>\n    <tr>\n      <th>First Name</th>\n      <th>Last Name</th>\n      <th>Email</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td>John</td>\n      <td>Doe</td>\n      <td>jdoe@example.com</td>\n    </tr>\n    <tr>\n    <td>Mark</td>\n      <td>Otto</td>\n      <td>motto@example.com</td>\n    </tr>\n    <tr>\n    <td>Larry</td>\n      <td>Page</td>\n      <td>lpage@example.com</td>\n    </tr>\n  </tbody>\n</table>"
+- data_table = "<table class=\"pragma-data-table\" data-paginate-per-page=\"10\" data-paginate=\"true\">\n  <thead>\n    <tr class=\"table-headers\">\n      <th data-type=\"number\">ID</th>\n      <th>First Name</th>\n      <th>Last Name</th>\n      <th>Email</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td>1</td>\n      <td>John</td>\n      <td>Doe</td>\n      <td>jdoe@example.com</td>\n    </tr>\n    ...\n    <tr>\n      <td>50</td>\n      <td>Larry</td>\n      <td>Page</td>\n      <td>lpage@example.com</td>\n    </tr>\n  </tbody>\n</table>"
+%section.grid-12
+  .width-12.grid-column-start-lg-2.width-lg-8
+    #top.linkable-section
+      %h1 Data Tables
+      %p.h4
+        Data tables display sets of data across rows and columns.
+      %p
+        Data tables display information in a grid-like format of rows and columns. They organize information in a way
+        that’s easy to scan, so that users can look for patterns and insights.
+      .notice.notice-icon.notice-info
+        .notice-header Information
+        .notice-body Data tables do not use javascript unless using the sort and pagination abilities.
+      %p Data tables can contain:
+      %ol
+        %li Interactive components (such as checkboxes, buttons and menus)
+        %li Non-interactive elements (such as badges and icons)
+        %li Tools to query and manipulate data
+  .grid-column-start-lg-11.width-lg-2.d-none.d-lg-block
+    .list-group.documentation-subnavigation
+      = link_to 'Anatomy', '#anatomy', class: 'list-group-item'
+      = link_to 'Sample', '#sample', class: 'list-group-item'
+      = link_to 'Usage', '#usage', class: 'list-group-item'
+      = link_to 'Principles', '#principles', class: 'list-group-item'
+  .width-12.grid-column-start-lg-2.width-lg-8
+    #sample.linkable-section
+      %h2 Sample
+      %h4 Regular Table
+      %table
+        %thead
+          %tr
+            %th First Name
+            %th Last Name
+            %th Email
+        %tbody
+          %tr
+            %td John
+            %td Doe
+            %td jdoe@example.com
+          %tr
+            %td Mark
+            %td Otto
+            %td motto@example.com
+          %tr
+            %td Larry
+            %td Page
+            %td lpage@example.com
+      = raw Pygments.highlight(regular_table, :lexer => 'html')
+      %h4 Elevated Table
+      %table.elevated-table
+        %thead
+          %tr
+            %th First Name
+            %th Last Name
+            %th Email
+        %tbody
+          %tr
+            %td John
+            %td Doe
+            %td jdoe@example.com
+          %tr
+            %td Mark
+            %td Otto
+            %td motto@example.com
+          %tr
+            %td Larry
+            %td Page
+            %td lpage@example.com
+      = raw Pygments.highlight(elevated_table, :lexer => 'html')
+      %h4
+        Data Table
+        %small.label Javascript
+      .notice.notice-icon.notice-warning
+        .notice-header Warning!
+        .notice-body
+          Data tables is a client side library to provide a light weight solution to your sorting needs.
+          %ul.m-0
+            %li Data tables do not support more than 400 table rows for client side sorting.
+            %li Data tables only provides styling for search, we urge you to use a backend search engine to provide optimum user experience and search experience.
+      %table.pragma-data-table{"data-paginate" => "true", "data-paginate-per-page" => "10"}
+        %thead
+          %tr.table-search
+            %th{:colspan => "4"}
+              = search_field_tag :query, nil, placeholder: 'Search', class:'search-field'
+          %tr.table-headers
+            %th{"data-type" => "number"} ID
+            %th First Name
+            %th Last Name
+            %th Email
+        %tbody
+          - 400.times.each_with_index do |i, t|
+            %tr
+              %td= i + 1
+              %td= FFaker::Name.first_name
+              %td= FFaker::Name.last_name
+              %td= FFaker::Internet.email
+      = raw Pygments.highlight(data_table, :lexer => 'html')
+  .width-12.grid-column-start-lg-2.width-lg-8
+    #usage.linkable-section
+      %h2 Include a Table Component
+      %p Table component has default style highlighted in the samples section as a regular sample.
+      %ol
+        %li
+          Code a
+          %pre table
+          element. Include any desired attributes and values, such as an id or event handler.
+          %br
+        %li
+          Add
+          %pre elevated-table
+          class to the table to make the table prominent.
+        %li
+          Add
+          %pre pragma-data-table
+          class to the table to the table sortable and paginatable.
+      %h3 Configuration Options
+      %p The table below lists the available classes and their effects.
+      %table
+        %thead
+          %tr
+            %th Class
+            %th Effects
+            %th Remarks
+        %tbody
+          %tr
+            %td
+              %span
+                %pre elevated-table
+            %td Defines elevated table component.
+            %td Optional
+          %tr
+            %td
+              %span
+                %pre pragma-data-table
+            %td Defines data table component which requires Javascript.
+            %td Optional
+          %tr
+            %td
+              %span
+                %pre table-headers
+            %td
+              Defines table headers row in the table header for
+              %pre pragma-data-table
+            %td
+              Optional
+          %tr
+            %td
+              %span
+                %pre table-search
+            %td
+              Defines table search row in the table header.
+              %br
+              Add
+              %pre search-field
+              to define search field in the table header row.
+            %td Optional
+          %tr
+            %td
+              %span
+                %pre
+                  th[data-type]
+            %td
+              Allows to specify data type for the column.
+              %br
+              Possible values: "number", "string", "date"
+              %br
+              Default value: "string"
+            %td
+              Optional

@@ -1,0 +1,110 @@
+@import "variables";
+@import "functions";
+
+.drawer {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  width: $drawer-width;
+  height: 100vh;
+  max-height: 100vh;
+  background-color: $body-background;
+  position: absolute;
+  top: 0;
+  left: 0;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .2), 0 1px 5px 0 rgba(0, 0, 0, .12);
+  box-sizing: border-box;
+  transform: translateX(- $drawer-width);
+  transform-style: preserve-3d;
+  will-change: transform;
+  transition-duration: .2s;
+  transition-timing-function: cubic-bezier(.4, 0, .2, 1);
+  transition-property: transform;
+  color: $body-color;
+  overflow: visible;
+  overflow-y: hidden;
+  z-index: 5;
+
+  .drawer-header {
+    background: $header-background;
+    color: $header-font-color;
+    display: flex;
+    flex-wrap: wrap;
+    font-size: $header-font-size;
+    height: $header-height;
+
+    .drawer-header--brand {
+      align-items: center;
+      display: flex;
+      margin-right: auto;
+      padding-left: 8px;
+      height: $header-height;
+      text-transform: capitalize;
+
+      .drawer-header--brand-title {
+        padding-left: 8px;
+        color: $drawer-brand-color !important;
+        text-decoration: none;
+      }
+    }
+  }
+
+  .drawer-navigation {
+    overflow-y: scroll;
+
+		.accordion{
+			&.is-visible{
+				.accordion-header{
+					background-color: rgba(0,0,0,0.1);
+					&::after{
+						top: 45%;
+					}
+				}
+				.accordion-body{
+					.drawer-navigation-link{
+						padding: 0.8rem 0.8rem 0.8rem 2rem;
+					}
+				}
+			}
+		}
+
+    .drawer-navigation-link {
+      position: relative;
+      padding: 0.8rem;
+      display: flex;
+      flex-shrink: 0;
+      margin: 0;
+      color: $body-color;
+      text-decoration: none;
+
+			&.accordion-header{
+				&::after{
+					top: 35%;
+				}
+			}
+
+      &:hover, &:active {
+        background-color: $drawer-active-background;
+				color: $drawer-active-font-color
+      }
+
+      .material-icons {
+        margin-right: 10px;
+      }
+
+      &.drawer-navigation-link--active {
+				background-color: $drawer-active-background;
+				color: $drawer-active-font-color
+      }
+
+    }
+
+    .drawer-navigation--separator {
+      border-bottom: 1px solid #E0E0E0;
+    }
+  }
+
+  &.is-visible {
+    transform: translateX(0);
+  }
+}

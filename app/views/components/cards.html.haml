@@ -1,0 +1,263 @@
+= render partial: "layouts/shared/component_drawer"
+- card_sample_one = "<div class=\"card\">\n  <div class=\"card-header\">\n    <img class=\"card-thumbnail\" src=\"/assets/sample-image-square.webp\">\n    <div class=\"card-header-content\">\n      <div class=\"card-title\">Card Title</div>\n      <div class=\"card-subtitle\">Secondary text</div>\n    </div>\n  </div>\n  <div class=\"card-media\"><img class=\"img-fluid\" src=\"/assets/sample-image-rectangle.webp\"></div>\n  <div class=\"card-body\">Lorem Ipsum is simply dummy text of the printing and typesetting industry.\nLorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown\nprinter took a galley of type and scrambled it to make a type specimen book.\n  </div>\n  <div class=\"card-actions\">\n    <a class=\"button\" href=\"\">Action 1</a>\n    <a class=\"button\" href=\"\">Action 2</a>\n  </div>\n</div>"
+- card_sample_two = "<div class=\"card\">\n  <div class=\"card-header\">\n    <img class=\"card-thumbnail\" src=\"/assets/sample-image-square.webp\">\n    <div class=\"card-header-content\">\n      <div class=\"card-title\">Card Title</div>\n      <div class=\"card-subtitle\">Secondary text</div>\n    </div>\n  </div>\n  <div class=\"card-body\">Lorem Ipsum is simply dummy text of the printing and typesetting industry.\nLorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown\nprinter took a galley of type and scrambled it to make a type specimen book.\n  </div>\n  <div class=\"card-actions\">\n    <a class=\"button\" href=\"\">Action 1</a>\n    <a class=\"button\" href=\"\">Action 2</a>\n  </div>\n</div>"
+- card_sample_three = "<div class=\"card\">\n  <div class=\"card-header\">\n    <div><small>Word of the day</small></div>\n     <div class=\"card-title\">be·nev·o·lent</div>\n    <div><small>adjective</small></div>\n  </div>\n  <div class=\"card-body\">\n    well meaning and kindly.<br>\"a benevolent smile.\"\n    <p>synonyms: <a href=\"#\">kind</a>, <a href=\"#\">kindly</a>, <a href=\"#\">kindhearted</a>,\n    <a href=\"#\">big-hearted</a>,<a href=\"#\">good-natured</a>, <a href=\"#\">good</a>,\n    <a href=\"#\">benign</a>, <a href=\"#\">compassionate</a>, <a href=\"#\">caring</a>,\n    <a href=\"#\">altruistic</a>, <a href=\"#\">humanitarian</a>, <a href=\"#\">philanhropic</a>;</p>\n  </div>\n  <div class=\"card-actions\">\n    <a href=\"#\" class=\"button\">Learn More</a>\n  </div>\n</div>"
+- card_sample_four = "<div class=\"card accordion\">\n  <div class=\"card-media\"><img class=\"img-fluid\" src=\"/assets/sample-image-rectangle.webp\"></div>\n  <div class=\"card-header accordion-header\">\n    <img class=\"card-thumbnail\" src=\"/assets/sample-image-square.webp\">\n    <div class=\"card-header-content\">\n      <div class=\"card-title\">John Doe</div>\n      <div class=\"card-subtitle\"><small>Work Contact</small></div>\n    </div>\n  </div>\n  <div class=\"card-body accordion-body\">\n    <div class=\"grid-5\">\n      <i class=\"material-icons width-1 m-4 h2 text-center\">call</i>\n      <p class=\"width-4\"><span class=\"h5\">(650)555-1234</span><br><small>Mobile</small></p>\n    </div>\n    <div class=\"grid-5\">\n      <i class=\"material-icons width-1 m-4 h2 text-center\">email</i>\n      <p class=\"width-4\"><span class=\"h5\">heyfromjohn@email.com</span><br><small>Work</small></p>\n    </div>\n  </div>\n</div>"
+- card_structure = "<div class=\"card\">\n  <div class=\"card-header\">\n    <img class=\"card-thumbnail\" src=\"/assets/sample-image-square.webp\">\n    <div class=\"card-header-content\">\n      <div class=\"card-title\">Card Title</div>\n      <div class=\"card-subtitle\">Secondary text</div>\n    </div>\n  </div>\n  <div class=\"card-media\">\n    <img class=\"img-fluid\" src=\"/assets/sample-image-rectangle.webp\">\n  </div>\n  <div class=\"card-body\">\n     Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's\n standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a\n type specimen book.\n</div>\n  <div class=\"card-actions\">\n    <a class=\"button\" href=\"\">Action 1</a>\n    <a class=\"button\" href=\"\">Action 2</a>\n  </div>\n</div>"
+%section.grid-12
+  .width-12.grid-column-start-lg-2.width-lg-8
+    #top.linkable-section
+      %h1 Cards
+      %p.h4
+        Cards are surface that display content and actions on a single topic.
+      %p
+        They should be easy to scan for relevant and actionable information. Elements, like text and images, should be
+        placed on them in a way that clearly indicates hierarchy.
+  .grid-column-start-lg-11.width-lg-2.d-none.d-lg-block
+    .list-group.documentation-subnavigation
+      = link_to 'Anatomy', '#anatomy', class: 'list-group-item'
+      = link_to 'Sample', '#sample', class: 'list-group-item'
+      = link_to 'Usage', '#usage', class: 'list-group-item'
+      = link_to 'Principles', '#principles', class: 'list-group-item'
+  .width-12.grid-column-start-lg-2.width-lg-8.grid-sm-1
+    %div
+      #anatomy.linkable-section
+        %h2 Anatomy
+        %p The card container is the only required element in a card. All other elements shown here are optional.
+        %p
+          Card layouts can vary to support the types of content they contain. The following elements are commonly found
+          among that variety.
+    = image_tag "cards/anatomy.webp", class: 'img-fluid'
+    %div
+      %ol
+        %li
+          %strong Container
+          %br
+          %p
+            Card containers hold all card elements, and their size is determined by the space those elements occupy.
+            Card elevation is expressed by the container.
+        %li
+          %strong Thumbnail [optional]
+          %br
+          %p Cards can include thumbnails to display an avatar, logo, or icon.
+        %li
+          %strong Header text [optional]
+          %br
+          %p Header text can include things like the name of a photo album or article.
+        %li
+          %strong Subtitle [optional]
+          %br
+          %p Subtitle text can include text elements such as an article byline or a tagged location.
+        %li
+          %strong Media [optional]
+          %br
+          %p Cards can include a variety of media, including photos, and graphics, such as weather icons.
+        %li
+          %strong Supporting Text [optional]
+          %br
+          %p Supporting text include text like an article summary or a restaurant description.
+        %li
+          %strong Action [optional]
+          %br
+          %p Cards can include buttons for actions.
+  .width-12.grid-column-start-lg-2.width-lg-8.grid-sm-1
+    #sample.linkable-section
+      %h2 Sample
+  .width-12.grid-column-start-md-0.width-md-6.grid-column-start-lg-2.width-lg-4
+    %h4.mt-2 Sample 1
+    .card
+      .card-header
+        = image_tag "sample-image-square.webp", class: 'card-thumbnail'
+        .card-header-content
+          .card-title Card Title
+          .card-subtitle Secondary text
+      .card-media
+        = image_tag "sample-image-rectangle.webp", class: 'img-fluid'
+      .card-body
+        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's
+        standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make
+        a type specimen book.
+      .card-actions
+        = link_to "Action 1", "", class: 'button'
+        = link_to "Action 2", "", class: 'button'
+  .width-12.grid-column-start-md-7.width-md-6.grid-column-start-lg-6.width-lg-4
+    %h4.mt-2 Sample 2
+    .card
+      .card-header
+        = image_tag "sample-image-square.webp", class: 'card-thumbnail'
+        .card-header-content
+          .card-title Card Title
+          .card-subtitle Secondary text
+      .card-body
+        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's
+        standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make
+        a type specimen book.
+      .card-actions
+        = link_to "Action 1", "", class: 'button'
+        = link_to "Action 2", "", class: 'button'
+    %h4.mt-5.mb-4 Sample 3
+    .card
+      .card-header
+        %div
+          %small Word of the day
+        .card-title be·nev·o·lent
+        %div
+          %small adjective
+      .card-body
+        well meaning and kindly.
+        %br
+        "a benevolent smile."
+        %p
+          synonyms:
+          = succeed "," do
+            %a{:href => "#"} kind
+          = succeed "," do
+            %a{:href => "#"} kindly
+          = succeed "," do
+            %a{:href => "#"} kindhearted
+          = succeed "," do
+            %a{:href => "#"} big-hearted
+          = succeed "," do
+            %a{:href => "#"} good-natured
+          = succeed "," do
+            %a{:href => "#"} good
+          = succeed "," do
+            %a{:href => "#"} benign
+          = succeed "," do
+            %a{:href => "#"} compassionate
+          = succeed "," do
+            %a{:href => "#"} caring
+          = succeed "," do
+            %a{:href => "#"} altruistic
+          = succeed "," do
+            %a{:href => "#"} humanitarian
+          = succeed ";" do
+            %a{:href => "#"} philanhropic
+      .card-actions
+        %a.button{:href => "#"} Learn More
+  .width-12.grid-column-start-lg-2.width-lg-8.grid-sm-1.grid-md-3
+    .width-3
+      %h4.mt-2.mb-2 Sample 1
+      = raw Pygments.highlight(card_sample_one, :lexer => 'html')
+    .width-3
+      %h4.mt-2.mb-2 Sample 2
+      = raw Pygments.highlight(card_sample_two, :lexer => 'html')
+    .width-3
+      %h4.mt-2.mb-2 Sample 3
+      = raw Pygments.highlight(card_sample_three, :lexer => 'html')
+  .width-12.grid-column-start-md-4.width-md-6.grid-column-start-lg-4.width-lg-4
+    %h4.mt-2 Sample 4
+    .card.accordion
+      .card-media= image_tag "sample-image-rectangle.webp", class: 'img-fluid'
+      .card-header.accordion-header
+        = image_tag "sample-image-square.webp", class: 'card-thumbnail'
+        .card-header-content
+          .card-title John Doe
+          .card-subtitle
+            %small Work Contact
+      .card-body.accordion-body
+        .grid-5
+          %i.material-icons.width-1.m-4.h2.text-center call
+          %p.width-4
+            %span.h5 (650)555-1234
+            %br
+            %small Mobile
+        .grid-5
+          %i.material-icons.width-1.m-4.h2.text-center email
+          %p.width-4
+            %span.h5 heyfromjohn@email.com
+            %br
+            %small Work
+  .width-12.grid-column-start-lg-2.width-lg-8.grid-sm-1.grid-md-3
+    .width-3
+      %h4.mt-2.mb-2 Sample 4
+      %p
+        This sample uses accordions. Please refer to
+        the #{link_to 'accordions documentation', component_path(component: 'accordions')} for further more
+        information.
+      = raw Pygments.highlight(card_sample_four, :lexer => 'html')
+  .width-12.grid-column-start-lg-2.width-lg-8
+    #usage.linkable-section
+      %h2 Include a Button Component
+      %ol
+        %li
+          Code a
+          %pre div
+          element. Include any desired attributes and values, such as an id or event handler. Below is the card
+          structure.
+          %br
+          = raw Pygments.highlight(card_structure, :lexer => 'html')
+      %h3 Configuration Options
+      %p The table below lists the available classes and their effects.
+      %table
+        %thead
+          %tr
+            %th Class
+            %th Effects
+            %th Remarks
+        %tbody
+          %tr
+            %td
+              %span
+                %pre card
+            %td Defines card component.
+            %td Required
+          %tr
+            %td
+              %span
+                %pre card-header
+            %td Defines the card header nested inside the card.
+            %td Optional
+          %tr
+            %td
+              %span
+                %pre card-thumbnail
+            %td Adds the thumbnail to the header.
+            %td Optional
+          %tr
+            %td
+              %span
+                %pre card-header-content
+            %td
+              Defines container for the title and the subtitle.
+              %br
+              %pre card-title
+              \- To add card title.
+              %br
+              %pre card-subtitle
+              \- To add card subtitle.
+            %td Optional
+          %tr
+            %td
+              %span
+                %pre card-media
+            %td Defines the media component in the card.
+            %td Optional
+          %tr
+            %td
+              %span
+                %pre card-body
+            %td Defines the content in the card.
+            %td Optional
+          %tr
+            %td
+              %span
+                %pre card-actions
+            %td Defines the actionable content in the card, such as buttons and links, etc.
+            %td Optional
+  .width-12.grid-column-start-lg-2.width-lg-8.grid-sm-1.grid-md-3
+    .width-3
+      #principles.linkable-section
+        %h2 Principles
+    %div
+      = image_tag "cards/contained.webp", class: 'img-fluid'
+      %h3 Contained
+      %p A card is identifiable as a single, contained unit.
+    %div
+      = image_tag "cards/independent.webp", class: 'img-fluid'
+      %h3 Independent
+      %p A card can stand alone , without relying on surrounding elements for context.
+    %div
+      = image_tag "cards/individual.webp", class: 'img-fluid'
+      %h3 Individual
+      %p A card cannot merge with another card or divide into multiple cards.

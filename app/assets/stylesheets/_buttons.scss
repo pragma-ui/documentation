@@ -1,0 +1,168 @@
+@import "variables";
+@import "utilities";
+
+button, .button {
+  background: 0 0;
+  border: none;
+  border-radius: 2px;
+  color: $button-default-color;
+  position: relative;
+  height: 2.5em;
+  line-height: 2.5em;
+  margin: 0;
+  min-width: 3em;
+  padding: 0 16px;
+  display: inline-block;
+  font-size: 0.875em;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0;
+  overflow: hidden !important;
+  will-change: box-shadow;
+  transition: box-shadow .2s cubic-bezier(.4, 0, 1, 1), background-color .2s cubic-bezier(.4, 0, .2, 1), color .2s cubic-bezier(.4, 0, .2, 1);
+  outline: none;
+  cursor: pointer;
+  text-decoration: none;
+  text-align: center;
+  vertical-align: middle;
+
+  &:not(:disabled):active, &:not(:disabled):hover {
+    background-color: $button-default-hover-background;
+		color: $button-default-hover-color;
+    transform: background-color .2s ripple;
+    animation: ripple 1s;
+  }
+
+  &.button-colored {
+    background-color: $button-default-hover-background;
+    color: $button-default-hover-color;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .2), 0 1px 5px 0 rgba(0, 0, 0, .12);
+
+    &:hover, &:active, &:focus {
+      background-color: $button-default-hover-background;
+      box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, .12);
+    }
+  }
+
+  &.button-colored-outline {
+    border: 1px solid $button-default-hover-background;
+    color: $button-default-hover-background;
+
+    &:hover, &:active {
+      background-color: $button-default-hover-background;
+      color: $button-default-hover-color;
+    }
+  }
+
+  &.button-colored-alt {
+    background-color: $button-alt-background;
+    color: $button-alt-color;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .2), 0 1px 5px 0 rgba(0, 0, 0, .12);
+
+    &:hover, &:active {
+      background-color: $button-alt-background;
+      color: $button-alt-color;
+    }
+  }
+
+  &.button-colored-alt-outline {
+    border: 1px solid $button-alt-background;
+    color: $button-alt-background;
+
+    &:hover, &:active {
+      background-color: $button-alt-background;
+      color: $button-alt-color;
+    }
+  }
+
+  &.button-fab {
+    border-radius: 50%;
+    font-size: 24px;
+    height: 2em;
+    min-width: 2em;
+    width: 2em;
+    padding: 0;
+    display: inline-block;
+    overflow: hidden;
+    background-color: $button-fab-default-background;
+    color: $button-fab-default-color;
+    box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2), 0px 6px 10px 0px rgba(0, 0, 0, 0.14), 0px 1px 18px 0px rgba(0, 0, 0, .12);
+    position: relative;
+    line-height: normal;
+    vertical-align: middle;
+
+    &:hover {
+      box-shadow: 0px 5px 5px -3px rgba(0, 0, 0, 0.2), 0px 8px 10px 1px rgba(0, 0, 0, 0.14), 0px 3px 14px 2px rgba(0, 0, 0, .12)
+    }
+
+    &.button-fab-alt {
+      background-color: $button-alt-background;
+      color: $button-alt-color;
+    }
+
+    .material-icons {
+      display: block;
+      margin: auto;
+    }
+
+    &.button-fab-extended {
+      width: auto;
+      font-size: 0.875em;
+      padding: 0 20px;
+      height: 2.5em;
+      line-height: 2.5em;
+      border-radius: 2em;
+    }
+  }
+
+  &.icon-button {
+    border-radius: 50%;
+    font-size: 24px;
+    height: 32px;
+    margin-left: 0;
+    margin-right: 0;
+    min-width: 32px;
+    width: 32px;
+    padding: 0;
+    overflow: hidden;
+    color: inherit;
+    line-height: normal;
+
+    .material-icons {
+      vertical-align: middle;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-12px, -12px);
+      line-height: 24px;
+      width: 24px;
+    }
+  }
+
+	@each $variation in map-keys($variations){
+		&.button-#{$variation} {
+			border-color: map-get(map-get($variations, $variation), 'border');
+			background-color: map-get(map-get($variations, $variation), 'background');
+			color: map-get(map-get($variations, $variation), 'font');
+			&:not(:disabled):active, &:not(:disabled):hover {
+				border-color: map-get(map-get($variations, $variation), 'border');
+				background-color: map-get(map-get($variations, $variation), 'background');
+				color: map-get(map-get($variations, $variation), 'font');
+			}
+		}
+		&.button-#{$variation}-outline {
+			border: 1px solid map-get(map-get($variations, $variation), 'border');
+			color: map-get(map-get($variations, $variation), 'font');
+			&:not(:disabled):active, &:not(:disabled):hover {
+				border-color: map-get(map-get($variations, $variation), 'border');
+				background-color: map-get(map-get($variations, $variation), 'background');
+				color: map-get(map-get($variations, $variation), 'font');
+			}
+		}
+	}
+}
+
+button:disabled, .button:disabled {
+  color: rgba(0, 0, 0, .26);
+  cursor: initial;
+}

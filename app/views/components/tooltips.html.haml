@@ -1,0 +1,110 @@
+- default_tooltips = '
+- <span data-tooltip="Follow"><i class="material-icons">add</i></span>
+- <span data-tooltip="Print"><i class="material-icons">print</i></span>
+- <span data-tooltip="Upload file.zip"><i class="material-icons">cloud_upload</i></span>'
+- top_tooltips = '
+- <span class="top-tooltip" data-tooltip="Follow +">Follow +</span>
+- <span class="top-tooltip" data-tooltip="Print">Print</span>
+- <span class="top-tooltip" data-tooltip="Upload file.zip">Upload File</span>'
+- left_tooltips = '
+- <span class="left-tooltip" data-tooltip="Add">Add</span>
+- <span class="left-tooltip" data-tooltip="Subtract">Subtract</span>
+- <span class="left-tooltip" data-tooltip="Multiply">Multiply</span>'
+- right_tooltips = '
+- <span class="right-tooltip" data-tooltip="Remove this document">Remove</span>
+- <span class="right-tooltip" data-tooltip="Add more details for this product">Add details</span>
+- <span class="right-tooltip" data-tooltip="Upload documents. Max size 50MB.">Upload documents</span>'
+= render partial: "layouts/shared/component_drawer"
+%section.grid-12
+  .width-12.grid-column-start-lg-2.width-lg-8
+    #top.linkable-section
+      %h1 Tooltips
+      %p.h4
+        Useful information on hover.
+      %p
+        A tooltip consists of text that clearly communicates additional information about an element
+        when the user hovers over or, in a touch-based UI, touches the element. The Pragma tooltip component is
+        pre-styled
+        (colors, fonts, and other settings are contained in material.min.css) to provide a vivid, attractive visual
+        element that displays related but typically non-essential content, e.g., a definition, clarification, or brief
+        instruction.
+  .grid-column-start-lg-11.width-lg-2.d-none.d-lg-block
+    .list-group.documentation-subnavigation
+      = link_to 'Sample', '#sample', class: 'list-group-item'
+      = link_to 'Usage', '#usage', class: 'list-group-item'
+  .width-12.grid-column-start-lg-2.width-lg-8
+    #sample.linkable-section
+      %h2 Sample
+      %h4 Default (Bottom)
+      .mt-4.mb-4
+        %span.m-4{"data-tooltip" => "Follow"}
+          %i.material-icons add
+        %span.m-4{"data-tooltip" => "Print"}
+          %i.material-icons print
+        %span.m-4{"data-tooltip" => "Upload file.zip"}
+          %i.material-icons cloud_upload
+      = raw Pygments.highlight(default_tooltips, :lexer => 'html')
+      %h4 Top Tooltip
+      .mt-4.mb-4
+        %span.m-4.top-tooltip{"data-tooltip" => "Follow +"} Follow +
+        %span.m-4.top-tooltip{"data-tooltip" => "Print"} Print
+        %span.m-4.top-tooltip{"data-tooltip" => "Upload file.zip"} Upload File
+      = raw Pygments.highlight(top_tooltips, :lexer => 'html')
+      %h4 Left Tooltip
+      .mt-4.mb-4
+        %span.m-4.left-tooltip{"data-tooltip" => "Add"} Add
+        %span.m-4.left-tooltip{"data-tooltip" => "Subtract"} Subtract
+        %span.m-4.left-tooltip{"data-tooltip" => "Multiply"} Multiply
+      = raw Pygments.highlight(left_tooltips, :lexer => 'html')
+      %h4 Right Tooltip
+      .mt-4.mb-4
+        %span.m-4.right-tooltip{"data-tooltip" => "Remove this document"} Remove
+        %span.m-4.right-tooltip{"data-tooltip" => "Add more details for this product"} Add details
+        %span.m-4.right-tooltip{"data-tooltip" => "Upload documents. Max size 50MB."} Upload documents
+      = raw Pygments.highlight(right_tooltips, :lexer => 'html')
+  .width-12.grid-column-start-lg-2.width-lg-8
+    #usage.linkable-section
+      %h2 Include a Tooltip Component
+      %ol
+        %li
+          Code any element. Include any desired attributes and values, such as an id or event handler.
+        %li
+          Add a data attribute
+          %pre data-tooltip
+          with the content for the tooltip.
+      %h3 Configuration Options
+      %p The table below lists the available classes and their effects.
+      %table
+        %thead
+          %tr
+            %th Class
+            %th Effects
+            %th Remarks
+        %tbody
+          %tr
+            %td
+              %span
+                %pre top-tooltip
+            %td
+              Defines the element to have a top tooltip in addition to
+              = succeed "." do
+                %pre data-tooltip
+            %td Required
+          %tr
+            %td
+              %span
+                %pre left-tooltip
+            %td
+              Defines the element to have a left tooltip in addition to
+              = succeed "." do
+                %pre data-tooltip
+            %td Required
+          %tr
+            %td
+              %span
+                %pre right-tooltip
+            %td
+              Defines the element to have a right tooltip in addition to
+              = succeed "." do
+                %pre data-tooltip
+            %td Required

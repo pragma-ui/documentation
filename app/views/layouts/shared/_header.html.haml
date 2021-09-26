@@ -1,0 +1,40 @@
+%header
+  .title-bar
+    .brand
+      - if content_for?(:drawer)
+        %span.drawer-open-button.d-flex
+          %i.material-icons menu
+      .title
+        = link_to "Pramga UI", root_path
+    .mobile-menu
+      %span.material-icons menu
+    .links
+      = link_to 'Documentation', documentation_path, class: 'header-link'
+      = link_to 'Developers', developers_path, class: 'header-link'
+      = link_to 'Examples', examples_path, class: 'header-link'
+      = link_to 'Themes', themes_path, class: 'header-link'
+  = yield :drawer
+-#<header>
+-#  <div class="title-bar">
+-#    <div class="brand">
+-#      <% if content_for?(:drawer) %>
+-#        <span class="drawer-open-button d-flex"><i class="material-icons">menu</i></span>
+-#      <% end %>
+-#      <div class="title"><%= link_to 'Pragma', root_path %></div>
+-#    </div>
+-#    <div class="links">
+-#      <%= link_to components_path, class: 'header-link' do %>
+-#        <i class="material-icons">category</i><span class="header-link--text d-none d-md-flex">Components</span>
+-#      <% end %>
+-#      <%= link_to develop_path, class: 'header-link' do %>
+-#        <i class="material-icons">code</i><span class="header-link--text d-none d-md-flex">Develop</span>
+-#      <% end %>
+-#      <% if current_user %>
+-#        <%= link_to destroy_user_session_path, method: :delete, class: 'header-link' do %>
+-#          <i class="material-icons">lock</i><span class="header-link--text d-none d-md-flex">Logout</span>
+-#        <% end %>
+-#      <% end %>
+-#    </div>
+-#  </div>
+-#  <%= yield :drawer %>
+-#</header>

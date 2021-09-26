@@ -1,0 +1,21 @@
+@import "variables";
+
+html {
+  scroll-behavior: smooth;
+
+  body {
+    height: 100%;
+    margin: 0;
+    margin-bottom: $body-bottom-margin;
+    line-height: 150%;
+    color: #5f6368;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: $body-font-size;
+    background-color: $body-background;
+
+    a {
+      color: $primary-background-color;
+    }
+  }
+}

@@ -1,0 +1,79 @@
+- load_progressively = "<div class=\"load-progressively\">\n  <div class=\"loading\" style=\"width: 34%;\"></div>\n</div>"
+= render partial: "layouts/shared/component_drawer"
+%section.grid-12
+  .width-12.grid-column-start-lg-2.width-lg-8
+    #top.linkable-section
+      %h1 Loaders
+      %p.h4
+        Indicate the loading state of a component or page with spinners.
+  .grid-column-start-lg-11.width-lg-2.d-none.d-lg-block
+    .list-group.documentation-subnavigation
+      = link_to 'Sample', '#sample', class: 'list-group-item'
+      = link_to 'Usage', '#usage', class: 'list-group-item'
+  .width-12.grid-column-start-lg-2.width-lg-8
+    #sample.linkable-section
+      %h2 Sample
+      .mt-4.mb-4
+        %p Progressive Loader
+        .m-4
+          .load-progressively
+            .loading{:style => "width: 34%;"}
+        = raw Pygments.highlight(load_progressively, :lexer => 'html')
+        %p Indefinite Spinner
+        .m-4
+          %span.load-spinner
+        = raw Pygments.highlight('<div class="load-spinner"></div>', :lexer => 'html')
+        %p Indeterminate Loading
+        .m-4
+          .load-indeterminate
+        = raw Pygments.highlight('<div class="load-indeterminate"></div>', :lexer => 'html')
+  .width-12.grid-column-start-lg-2.width-lg-8
+    #usage.linkable-section
+      %h2 Include a Button Component
+      %ol
+        %li
+          Code an element - div(recommended), span, section, etc. Add class
+          %pre load-progressively
+          to create a progressively loading bar.
+        %li
+          Add an element with class
+          %pre loading
+          and inline style for width.
+        %li
+          To add a spinner: Code an element - div(recommended), span, section, etc. Add class
+          %pre load-spinner
+          \.
+        %li
+          To add an indeterminate loading bar: Code an element - div(recommended), span, section, etc. Add class
+          %pre load-indeterminate
+          \.
+      %h3 Configuration Options
+      %p The table below lists the available classes and their effects.
+      %table
+        %thead
+          %tr
+            %th Class
+            %th Effects
+            %th Remarks
+        %tbody
+          %tr
+            %td
+              %span
+                %pre load-progressively
+            %td
+              Defines the element to be a loading bar. It will contain
+              %pre .loading
+              bar.
+            %td Required
+          %tr
+            %td
+              %span
+                %pre load-spinner
+            %td Defines the element to be a loading spinner.
+            %td Required
+          %tr
+            %td
+              %span
+                %pre load-indeterminate
+            %td Defines the element to be an indeterminately loading bar.
+            %td Required

@@ -1,0 +1,174 @@
+@import "variables";
+
+table {
+	margin-top: 1em;
+	margin-bottom: 1em;
+	width: 100%;
+	max-width: 100%;
+	border-collapse: collapse;
+	position: relative;
+
+	thead {
+		th {
+			background-color: $table-head-background-color;
+			color: $table-head-color;
+			text-align: left;
+			position: relative;
+		}
+		tr.table-search{
+			.search-field{
+				display: block;
+				padding: 0.375rem 0.75rem;
+				font-size: 1rem;
+				line-height: 1.5;
+				width: 100%;
+				background-clip: padding-box;
+				border: 1px solid $table-border-color;
+				border-radius: 0.25rem;
+			}
+		}
+	}
+
+	th, td {
+		padding: 0.75rem 1.25rem;
+		border: 1px solid $table-border-color;
+	}
+
+	tbody {
+		tr {
+			&:hover {
+				background-color: rgba(0, 0, 0, 0.03)
+			}
+		}
+	}
+
+	&.elevated-table {
+		background-color: $table-elevated-background-color;
+		box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .2), 0 1px 5px 0 rgba(0, 0, 0, .12);
+
+		thead {
+			th {
+				background-color: $table-elevated-header-background-color;
+				position: relative;
+				vertical-align: bottom;
+				text-overflow: ellipsis;
+				font-weight: bolder;
+				letter-spacing: 0;
+				box-sizing: border-box;
+				border: none;
+			}
+
+			tr.table-search {
+				border-bottom: 1px solid rgba(0, 0, 0, .12);
+
+				th {
+					padding: 0;
+
+					.search-field {
+						display: block;
+						padding: 0.75rem 0.75rem;
+						font-size: 1rem;
+						line-height: 1.5;
+						background-clip: padding-box;
+						border: none;
+						width: 100%;
+					}
+				}
+			}
+		}
+
+		tbody, tfoot {
+			tr {
+				position: relative;
+				transition-duration: .28s;
+				transition-timing-function: cubic-bezier(.4, 0, .2, 1);
+				transition-property: background-color;
+
+				td {
+					border: none;
+					position: relative;
+					border-top: 1px solid rgba(0, 0, 0, .12);
+					border-bottom: 1px solid rgba(0, 0, 0, .12);
+					padding: 0.75rem 1.25rem;
+					box-sizing: border-box;
+				}
+			}
+		}
+	}
+
+	th {
+		&.sorted-asc::after {
+			content: '\E5D8' !important;
+			font-family: 'Material Icons';
+			position: absolute;
+			right: 1em;
+		}
+
+		&.sorted-desc::after {
+			content: '\E5DB' !important;
+			font-family: 'Material Icons';
+			position: absolute;
+			right: 1em;
+		}
+	}
+
+	&.pragma-data-table{
+		tr.table-headers{
+			th{
+				cursor: pointer;
+				&::after {
+					content: '\E8D5';
+					font-family: 'Material Icons';
+					position: absolute;
+					right: 1em;
+				}
+			}
+		}
+	}
+
+	.pagination-container{
+		display: flex;
+		width: 100%;
+		justify-content: space-between;
+		align-items: center;
+
+		.pagination-description{
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+
+			.pagination-range{
+				margin-right: 2em;
+			}
+		}
+	}
+
+	&.table-loading{
+		thead{
+			&::before{
+				content: "Loading...";
+				position: absolute;
+				top: 57%;
+				left: 45.5%;
+				color: $table-loader-color;
+			}
+			&::after{
+				content: " ";
+				display: inline-block;
+				width: 3rem;
+				height: 3rem;
+				vertical-align: text-bottom;
+				border: 0.30em solid $table-loader-color;
+				border-right-color: transparent;
+				border-radius: 50%;
+				animation: spin .75s linear infinite;
+				position: absolute;
+				top: 46%;
+				left: 46%;
+			}
+		}
+		tbody{
+			opacity: 0.5;
+		}
+	}
+}

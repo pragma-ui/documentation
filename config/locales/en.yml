@@ -1,0 +1,90 @@
+en:
+  components:
+    accordions:
+      list_accordion:
+        <div class="list-group list-elevated list-outlined">\n
+          <div class="list-group-item accordion">\n
+            <div class="accordion-header">How can I change my shipping address?</div>\n
+            <div class="accordion-body">\n
+              By default, the last used shipping address will be saved into to your Sample Store account. When you are
+              checking out your order, the default shipping address will be displayed and you have the option to amend it if
+              you need to.
+            </div>\n
+          </div>\n
+          <div class="list-group-item accordion">\n
+            <div class="accordion-header">How do I activate my account?</div>\n
+            <div class="accordion-body">\n
+              The instructions to activate your account will be sent to your email once you have submitted the registration
+              form. If you did not receive this email, your email service provider’s mailing software may be blocking it.
+              You can try checking your junk / spam folder or contact us at help@samplestore.com.
+            </div>\n
+          </div>\n
+          <div class="list-group-item accordion">\n
+            <div class="accordion-header">What do you mean by points? How do I earn it?</div>\n
+            <div class="accordion-body">\n
+              Because you are important to us, we want to know what you think about the products. As an added value, every
+              time you rate the products you earn points which go straight to your account. 1 point are added to your
+              account for every review that you give. You will need those points in order to redeem the sample products. So
+              keep rating the products to keep earning points!
+            </div>\n
+          </div>\n
+        </div>\n
+      form_accordion:
+        <form class="list-group list-outlined" action="" accept-charset="UTF-8" method="post">\n
+          <div class="list-group-item accordion is-visible">\n
+            <div class="accordion-header">Personal Information</div>\n
+            <div class="accordion-body">\n
+              <div class="grid-1 grid-md-2">\n
+                <div class="field width-1">\n
+                  <label for="first_name">First name</label>\n
+                  <input type="text" name="first_name" id="first_name">\n
+                </div>\n
+                <div class="field width-1">\n
+                  <label for="last_name">Last name</label>\n
+                  <input type="text" name="last_name" id="last_name">\n
+                </div>\n
+                <div class="field width-1">\n
+                  <label for="email">Email</label>\n
+                  <input type="email" name="email" id="email">\n
+                </div>\n
+                <div class="field width-1">\n
+                  <label for="phone_number">Phone number</label>\n
+                  <input type="tel" name="phone_number" id="phone_number">\n
+                </div>\n
+              </div>\n
+            </div>\n
+          </div>\n
+          <div class="list-group-item accordion">\n
+            <div class="accordion-header">Physical Address</div>\n
+            <div class="accordion-body">\n
+              <div class="grid-1 grid-md-2">\n
+                <div class="field width-1">\n
+                  <label for="street_1">Street 1</label>\n
+                  <input type="text" name="street_1" id="street_1">\n
+                </div>\n
+                <div class="field width-1">\n
+                  <label for="street_2">Street 2</label>\n
+                  <input type="text" name="street_2" id="street_2">\n
+                </div>\n
+              </div>\n
+              <div class="grid-1 grid-md-3">\n
+                <div class="field width-1">\n
+                  <label for="city">City</label>\n
+                  <input type="text" name="city" id="city">\n
+                </div>\n
+                <div class="field width-1">\n
+                  <label for="state">State</label>\n
+                  <input type="text" name="state" id="state">\n
+                </div>\n
+                <div class="field width-1">\n
+                  <label for="zipcode">Zipcode</label>\n
+                  <input type="text" name="zipcode" id="zipcode">\n
+                </div>\n
+              </div>\n
+            </div>\n
+          </div>\n
+          <div class="list-group-item">\n
+            <button name="button" type="submit" class="button">cancel</button>\n
+            <input type="submit" name="commit" value="submit" class="button button-colored ml-2" data-disable-with="submit">\n
+          </div>\n
+        </form>

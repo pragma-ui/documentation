@@ -1,0 +1,318 @@
+- regular_dialog = "<button class=\"dialog-trigger button button-colored\" data-dialog=\"#regular-dialog\">Regular Dialog</button>\n\n<div class=\"dialog-container\" id=\"regular-dialog\">\n  <div class=\"dialog\">\n    <div class=\"dialog-header\">\n      <div class=\"dialog-title\">Dialog Title</div>\n      <span class=\"dialog-close\"><i class=\"material-icons\">clear</i></span>\n    </div>\n    <div class=\"dialog-body\">\n       # Dialog Content\n    </div>\n    <div class=\"dialog-actions\">\n      <a class=\"dialog-cancel button\" href=\"#\">Close</a>\n      <a class=\"button button-colored\" href=\"#\">Okay</a>\n    </div>\n  </div>\n</div>"
+- form_dialog = "<button class=\"dialog-trigger button button-colored-alt\" data-dialog=\"#form-dialog\">Form Dialog</button>\n\n<div class=\"dialog-container width-12 grid-12\" id=\"form-dialog\">\n  <div class=\"grid-column-start-3 width-8\">\n    <div class=\"dialog\">\n      <div class=\"dialog-header\">\n        <div class=\"dialog-title\">Create New Event</div>\n        <span class=\"dialog-close\"><i class=\"material-icons\">clear</i></span>\n      </div>\n      <div class=\"dialog-body\">\n        <form class=\"grid-2\" action=\"\" accept-charset=\"UTF-8\" method=\"post\">\n          <div class=\"field width-2\">\n            <label for=\"name\">Name</label>\n            <input type=\"text\" name=\"name\" id=\"name\">\n          </div>\n          <div class=\"field width-2 width-md-1\">\n            <label for=\"date\">Date</label>\n            <input type=\"date\" name=\"date\" id=\"date\">\n          </div>\n          <div class=\"field width-2 width-md-1\">\n            <label for=\"time\">Time</label>\n            <input type=\"time\" name=\"time\" id=\"time\">\n          </div>\n          <div class=\"field width-2\">\n            <label for=\"description\">Description</label>\n            <textarea name=\"description\" id=\"description\"></textarea>\n          </div>\n        </form>\n      </div>\n      <div class=\"dialog-actions\">\n        <a class=\"dialog-cancel button\" href=\"#\">Cancel</a>\n        <a class=\"button button-colored\" href=\"#\">Save</a>\n      </div>\n    </div>\n  </div>\n</div>"
+- dialog_structure = "<div class=\"dialog-container\" id=\"dialog-css-selector\">\n  <div class=\"dialog\">\n    <div class=\"dialog-header\">\n      <div class=\"dialog-title\">Dialog Title</div>\n      <span class=\"dialog-close\"><i class=\"material-icons\">clear</i></span>\n    </div>\n    <div class=\"dialog-body\">\n       # Dialog Body Content\n    </div>\n    <div class=\"dialog-actions\">\n       # Dialog Actions Items - Confirm, OK, Cancel\n    </div>\n  </div>\n</div>"
+- manually_define = "// Get element that is a dialog trigger button\nlet dialogButton = document.querySelector(\"#dialog-button\")\n// Define the dialog functionality\nlet newDialog = new PragmaDialog(dialogButton)\n// Manually open dialog\nnewDialog.openDialog()\n// Manually close dialog\nnewDialog.closeDialog()\n// Trigger a function on a dialog opening\nnewDialog.addEventListener('opening.pragma.dialog', function(){\n  // your code here ...\n});"
+-# - '// Get element that is a dialog trigger button
+-# - let dialogButton = document.querySelector("#dialog-button")
+-# - // Define the dialog functionality
+-# - let newDialog = new PragmaDialog(dialogButton)
+-# - // Manually open dialog
+-# - newDialog.openDialog()
+-# - // Manually close dialog
+-# - newDialog.closeDialog()
+-# - // Trigger a function on a dialog opening
+-# - newDialog.addEventListener(\'opening.pragma.dialog\', function(){
+-# - // your code here ...
+-# - });'
+= render partial: "layouts/shared/component_drawer"
+%section.grid-12
+  .width-12.grid-column-start-lg-2.width-lg-8
+    #top.linkable-section
+      %h1
+        Dialogs
+        %small.label Javascript
+      %p.h4
+        Dialogs inform users about a task and can contain critical information, require decisions, or involve multiple
+        tasks.
+      %p
+        A dialog is a type of modal window that appears in front of the content to provide critical information or ask
+        for a decision. Dialogs disable all functionality when they appear, and remain on screen until confirmed,
+        dismissed, or a required action has been taken.
+      %p Dialogs are purposefully interruptive, so they should be used sparingly.
+  .grid-column-start-lg-11.width-lg-2.d-none.d-lg-block
+    .list-group.documentation-subnavigation
+      = link_to 'Anatomy', '#anatomy', class: 'list-group-item'
+      = link_to 'Sample', '#sample', class: 'list-group-item'
+      = link_to 'Usage', '#usage', class: 'list-group-item'
+      = link_to 'Methods', '#methods', class: 'list-group-item'
+      = link_to 'Events', '#events', class: 'list-group-item'
+      = link_to 'Behavior', '#behavior', class: 'list-group-item'
+      = link_to 'Principles', '#principles', class: 'list-group-item'
+  .width-12.grid-column-start-lg-2.width-lg-8.grid-sm-1
+    %div
+      #anatomy.linkable-section
+        %h2 Anatomy
+    = image_tag "dialogs/anatomy.webp", class: 'img-fluid'
+    %div
+      %ol
+        %li Container
+        %li Title (optional)
+        %li Supporting text
+        %li Buttons
+        %li Scrim
+    %div
+      %h3 Dialog box and Scrim
+      %p
+        A dialog is a type of modal window. Access to the rest of the UI is disabled until the modal is addressed. All
+        modal surfaces are interruptive by design - their purpose is to have the user focus on content ona surface that
+        appears in front of all other surfaces.
+      %p
+        To express that the rest of the content is inaccessible, and to focus attention on the dialog, surfaces behind
+        the dialog are scrimmed. A scrim is a temporary treatment that can be applied to surfaces for the purpose of
+        making content on the surface less prominent.
+      %h3 Title
+      %p A dialog's purpose should be communicated by its title and button text.
+      %p Titles should:
+      %ol
+        %li Contain a brief, clear statement or question
+        %li Avoid apologies ("Sorry for the interruption"), alarm ("Warning!"), or ambiguity ("Are you sure?")
+      %h3 Elevation
+      %p
+        Dialogs are displayed at an elevation displaying a shadow. the appear above other content and typically have a
+        scrim below them that covers all content.
+  .width-12.grid-column-start-lg-2.width-lg-8
+    #sample.linkable-section
+      %h2 Sample
+    %div
+      %h4.mt-2 Regular Dialog
+      = button_tag 'Regular Dialog', class: 'dialog-trigger button button-colored', data: {dialog: '#regular-dialog'}
+      #regular-dialog.dialog-container.width-12.grid-12
+        .grid-column-start-3.width-8
+          .dialog
+            .dialog-header
+              .dialog-title Dialog Title
+              %span.dialog-close
+                %i.material-icons clear
+            .dialog-body
+              %p
+                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+                industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and
+                scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap
+                into
+                electronic typesetting, remaining essentially unchanged.
+              %p
+                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+                industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and
+                scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap
+                into
+                electronic typesetting, remaining essentially unchanged.
+              %p
+                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+                industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and
+                scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap
+                into
+                electronic typesetting, remaining essentially unchanged.
+              %p
+                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+                industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and
+                scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap
+                into
+                electronic typesetting, remaining essentially unchanged.
+              %p
+                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+                industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and
+                scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap
+                into
+                electronic typesetting, remaining essentially unchanged.
+              %p
+                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+                industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and
+                scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap
+                into
+                electronic typesetting, remaining essentially unchanged.
+            .dialog-actions
+              = link_to "Close", "#", class: 'dialog-cancel button'
+              = link_to "Okay", "#", class: 'button button-colored'
+      = raw Pygments.highlight(regular_dialog, :lexer => 'html')
+    %div
+      %h4.mt-2 Form Dialog
+      = button_tag 'Form Dialog', class: 'dialog-trigger button button-colored-alt', data: {dialog: '#form-dialog'}
+      #form-dialog.dialog-container.width-12.grid-12
+        .grid-column-start-3.width-8
+          .dialog
+            .dialog-header
+              .dialog-title Create New Event
+              %span.dialog-close
+                %i.material-icons clear
+            .dialog-body
+              = form_tag("", class: 'grid-2') do
+                .field.width-2
+                  = label_tag :name
+                  = text_field_tag :name, nil
+                .field.width-2.width-md-1
+                  = label_tag :date
+                  = date_field_tag :date, nil
+                .field.width-2.width-md-1
+                  = label_tag :time
+                  = time_field_tag :time, nil
+                .field.width-2
+                  = label_tag :description
+                  = text_area_tag :description, nil
+            .dialog-actions
+              = link_to "Cancel", "#", class: 'dialog-cancel button'
+              = link_to "Save", "#", class: 'button button-colored'
+      %p Form dialog using grid for size configuration.
+      = raw Pygments.highlight(form_dialog, :lexer => 'html')
+  .width-12.grid-column-start-lg-2.width-lg-8
+    %div
+      #usage.linkable-section
+        %h2 Usage
+      %div
+        %h2 Include a Dialog Component
+        %ol
+          %li
+            Code a
+            %pre button
+            or
+            %pre a
+            element. Include any desired attributes and values, and add a text caption appropriately.
+          %li
+            Add the one or more Pragma classes, separated by spaces, to the element using the class attribute. Add
+            %pre dialog-trigger
+            class. Add data attribute
+            %pre data-dialog
+            that has the css selector for the dialog container.
+          %li
+            Below is dialog structure.
+            %br
+            #{raw Pygments.highlight(dialog_structure, :lexer => 'html')}
+        %h3 Configuration Options
+        %p The table below lists the available classes and their effects.
+        %table
+          %thead
+            %tr
+              %th Class
+              %th Effects
+              %th Remarks
+          %tbody
+            %tr
+              %td
+                %span
+                  %pre dialog-trigger
+              %td
+                Defines button component that can trigger a dialog box.
+                %br>/
+                Also has
+                %pre data-dialog="#dialog-css-selector"
+              %td Required
+            %tr
+              %td
+                %span
+                  %pre dialog-container
+              %td Defines dialog container.
+              %td Optional
+            %tr
+              %td
+                %span
+                  %pre dialog-header
+              %td
+                Defines dialog header. Contains
+                %pre .dialog-title
+                defining dialog title,
+                %br/
+                %pre .dialog-close
+                defining the close button.
+              %td Optional
+            %tr
+              %td
+                %span
+                  %pre dialog-body
+              %td Defines dialog body.
+              %td Optional (Recommended though)
+            %tr
+              %td
+                %span
+                  %pre dialog-actions
+              %td Defines dialog actions.
+              %td Optional
+  .width-12.grid-column-start-lg-2.width-lg-8
+    %div
+      %h2 Understanding Dialogs Plugin
+      #methods.linkable-section
+        %h3 Methods
+        %div
+          %pre.h4.font-alt new PragmaDialog(element)
+          %p Activates your content as a Dialog element.
+          %pre.h4.font-alt .openDialog()
+          %p
+            Opens the dialog.
+            %strong Returns to the caller before the dialog element has actually been opened
+            (i.e. before the
+            %code open.pragma.dialog
+            event occurs).
+          %pre.h4.font-alt .closeDialog()
+          %p
+            Closes the dialog.
+            %strong Returns to the caller before the dialog element has actually been closed
+            (i.e. before the
+            %code closed.pragma.dialog
+            event occurs).
+      #events.linkable-section
+        %h3 Events
+        %p Dialog class exposes a few events for hooking into the functionality.
+        %table
+          %thead
+            %tr
+              %th Event Type
+              %th Description
+          %tbody
+            %tr
+              %td opening.pragma.dialog
+              %td
+                This event fires immediately when the
+                %pre open
+                instance method is called.
+            %tr
+              %td open.pragma.dialog
+              %td This event is fired when a dialog element has been opened for the user.
+            %tr
+              %td closing.pragma.dialog
+              %td
+                This event fires immediately when the
+                %pre close
+                instance method is called.
+            %tr
+              %td close.pragma.dialog
+              %td This event is fired when a dialog element has been closed for the user.
+        = raw Pygments.highlight(manually_define, :lexer => 'javascript')
+  .width-12.grid-column-start-lg-2.width-lg-8
+    %div
+      #behavior.linkable-section
+        %h2 Behavior
+      %h3 Interaction
+      %p
+        Dialogs appear without warning, requiring users to stop their current task. they should be used sparingly, as
+        not every choice or setting warrants interruption.
+      %h3 Position
+      %p
+        Dialogs retain focus until dismissed or an action has been taken, such as choosing a setting. They shouldn't be
+        obscured by other elements or appear partially on screen, with the exception of full-screen dialogs.
+      %h3 Scrolling
+      %p
+        Most dialog content should avoid scrolling. when scrolling is required, the dialog title is pinned at the top,
+        with buttons pinned at the bottom. this ensures selected content remains visible alongside the title and
+        buttons, even upon scroll.
+      %p Dialogs don't scroll with elements outside of the dialog, such as the background.
+      %h3 Dismissing dialogs
+      %p Dialogs may be dismissed by:
+      %ul
+        %li Tapping outside of the dialog
+        %li Tapping the "Cancel" button
+        %li Tapping the close button
+      %p If the user's ability to dismiss a dialog is disabled, the user must choose a dialog action to proceed.
+  .width-12.grid-column-start-lg-2.width-lg-8.grid-sm-1.grid-md-3
+    .width-3
+      #principles.linkable-section
+        %h2 Principles
+    %div
+      = image_tag "dialogs/focused.webp", class: 'img-fluid'
+      %h3 Focused
+      %p Dialogs focus user attention to ensure their content is addressed.
+    %div
+      = image_tag "dialogs/direct.webp", class: 'img-fluid'
+      %h3 Direct
+      %p Dialogs should be direct in communicating information and dedicated to completing a task.
+    %div
+      = image_tag "dialogs/helpful.webp", class: 'img-fluid'
+      %h3 Helpful
+      %p Dialogs should appear in response to a user task or an action, with relevant or contextual information.

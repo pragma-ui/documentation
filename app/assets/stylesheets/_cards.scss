@@ -1,0 +1,68 @@
+@import "variables";
+
+.card{
+	max-width: 100%;
+	display: flex;
+	flex-direction: column;
+	font-size: $body-font-size;
+	z-index: 1;
+	position: relative;
+	background-color: $card-background-default;
+	border-radius: 4px;
+	box-sizing: border-box;
+	box-shadow: 0 2px 2px 0 rgba(0,0,0,.14), 0 3px 1px -2px rgba(0,0,0,.2), 0 1px 5px 0 rgba(0,0,0,.12);
+	&.card-outlined{
+		box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.2), 0px 0px 0px 0px rgba(0, 0, 0, 0.14), 0px 0px 0px 0px rgba(0,0,0,.12);
+    border: 1px solid $card-outline-color;
+	}
+	.card-header, .card-body, .card-actions, .card-footer{
+		padding: 1rem;
+	}
+	.card-media{
+    position: relative;
+    box-sizing: border-box;
+	}
+  .card-header {
+    position: relative;
+    .card-thumbnail{
+    	width: 10%;
+    	height: auto;
+    	border-radius: 50%;
+    	display: inline-block;
+    	margin-right: 1rem;
+    }
+    .card-header-content{
+    	display: inline-block;
+    }
+    .card-title {
+      font-size: $card-title-font-size;
+      color: $card-title-color;
+      padding: 0;
+      margin-bottom: 0.5rem;
+    }
+    .card-subtitle{
+      font-size: $card-subtitle-font-size;
+      color: $card-subtitle-color;
+      padding: 0;
+      margin: 0;
+			margin-top: 0.5rem;
+    }
+		.card-menu{
+			position: absolute;
+			right: 1rem;
+			top: 1rem;
+		}
+  }
+  .card-body * {
+    max-width: 100%;
+    overflow-x: hidden;
+    overflow-y: scroll;
+  }
+  .card-header + .card-body{
+  	padding-top: 0;
+  }
+	//TODO: Add support for tabs
+}
+a.card-outlined:hover{
+	box-shadow: 0 2px 2px 0 rgba(0,0,0,.14), 0 3px 1px -2px rgba(0,0,0,.2), 0 1px 5px 0 rgba(0,0,0,.12);
+}

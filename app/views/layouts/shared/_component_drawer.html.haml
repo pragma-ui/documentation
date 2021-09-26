@@ -1,0 +1,46 @@
+-# TODO: Add the below components
+-# 1. Bottom Navigation
+-# 2. Chips
+-# 3. Drawer
+-# 4. Images
+-# 5. Forms
+-# 5. Notices
+-# 6. Notifications
+-# 7. Pickers
+-# 8. Select
+-# 9. Tabs
+= content_for :drawer do
+  - menu = { documentation: 'Getting Started',
+    components: { accordions: 'Accordions',
+      badges: 'Badges',
+      breadcrumbs: 'Breadcrumbs',
+      buttons: 'Buttons',
+      "buttons-fab": 'Buttons: Fab',
+      cards: 'Cards',
+      "data-tables": 'Data Tables',
+      dialogs: 'Dialogs',
+      menus: 'Menus',
+      layout: 'Layout',
+      loaders: 'Loaders',
+      lists: 'Lists',
+      tooltips: 'Tooltips',
+    },
+  }
+  .drawer.drawer-fixed.is-visible
+    .drawer-header
+      .drawer-header--brand
+        %span.drawer-close-button.d-flex{role: :button}
+          %i.material-icons menu
+        = link_to 'Pragma UI', root_path, class: 'drawer-header--brand-title'
+    .drawer-navigation
+      - menu.each do |k,v|
+        - if v.class === 'String'
+          = link_to v, "/#{k}", class: "drawer-navigation-link #{"drawer-navigation-link--active" if (action_name === k.to_s)}"
+        - else
+          .accordion.is-visible
+            .drawer-navigation-link.accordion-header
+              = k.to_s.capitalize
+            .accordion-body
+              - v.each do |i, j|
+                = link_to "/#{k}/#{i}", class: "drawer-navigation-link #{"drawer-navigation-link--active" if (params["#{k.to_s.singularize}"] === i.to_s)}" do
+                  %span.drawer-navigation-link--text #{j}

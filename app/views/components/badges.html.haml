@@ -1,0 +1,116 @@
+= render partial: "layouts/shared/component_drawer"
+- text_badge = "<!-- Number Badge -->\n<span class=\"badge\" data-badge=\"2\">Inbox</span>\n<!-- Icon badge -->\n<span class=\"badge\" data-badge=\"❤\">Mood</span>"
+- icon_badge = "<!-- Number Badge -->\n<span class=\"badge badge-overlap\" data-badge=\"2\"><i class=\"material-icons\">account_box</i></span>\n<!-- Icon badge -->\n<span class=\"badge badge-overlap\" data-badge=\"❤\"><i class=\"material-icons\">account_box</i></span>"
+%section.grid-12
+  .width-12.grid-column-start-lg-2.width-lg-8
+    #top.linkable-section
+      %h1 Badges
+      %p.h5
+        Pragma encourages the use of badges to notify users of in-app notifications. Badges can be both notifier of that
+        there are additional items associated with an object and an indicator of how many.
+      = image_tag "badges/header.webp", class: "img-fluid"
+      %p
+        You can use a badge to unobtrusively draw the user's attention to items they might not otherwise notice, or to
+        emphasize that items may need their attention. For example:
+      %ul
+        %li A "New messages" notification might be followed by a badge containing the number of unread messages.
+        %li
+          A "You have unpurchased items in your shopping cart" reminder might include a badge showing the number of
+          items in the cart.
+        %li
+          A "Join the discussion!" button might have an accompanying badge indicating the number of users currently
+          participating in the discussion.
+      %p
+        A badge is almost always positioned near a link so that the user has a convenient way to access the additional
+        information indicated by the badge. However, depending on the intent, the badge itself may or may not be part of
+        the link.
+  .grid-column-start-lg-11.width-lg-2.d-none.d-lg-block
+    .list-group.documentation-subnavigation
+      = link_to 'Sample', '#sample', class: 'list-group-item'
+      = link_to 'Usage', '#usage', class: 'list-group-item'
+      = link_to 'Guidelines', '#guidelines', class: 'list-group-item'
+  .width-12.grid-column-start-lg-2.width-lg-8
+    #sample.linkable-section
+      %h2 Sample
+      %p.h4 Text items with badges
+      .grid-2.text-center.example-container
+        %div
+          %span.badge{"data-badge" => "2"} Inbox
+        %div
+          %span.badge{"data-badge" => "❤"} Mood
+      = raw Pygments.highlight(text_badge, :lexer => 'html')
+      %p.h4 Icons with badges
+      .grid-2.text-center.example-container
+        %div
+          %span.badge.badge-overlap{"data-badge" => "2"}
+            %i.material-icons account_box
+        %div
+          %span.badge.badge-overlap{"data-badge" => "❤"}
+            %i.material-icons account_box
+      = raw Pygments.highlight(icon_badge, :lexer => 'html')
+    #usage.linkable-section
+      %h2 Include a Badge Component
+      %ol
+        %li
+          Create an element, link, span, or icon, etc. Include any desired attributes and content.
+          %br/
+          = raw Pygments.highlight('<span>Inbox</span>', :lexer => 'html')
+        %li
+          Add the one or more Pragma classes, separated by spaces, to the element using the class attribute. Also add
+          class badge for badges.
+          %br/
+          = raw Pygments.highlight('<span class="badge">Inbox</span>', :lexer => 'html')
+        %li
+          Add a data-badge attribute and quoted string value for the badge.
+          %br/
+          = raw Pygments.highlight('<span class="badge" data-badge="1">Inbox</span>', :lexer => 'html')
+      %h3 Configuration Options
+      %p The table below lists the available classes and their effects.
+      %table
+        %thead
+          %tr
+            %th Class
+            %th Effects
+            %th Remarks
+        %tbody
+          %tr
+            %td
+              %span
+                %pre badge
+            %td Defines badge component
+            %td Required
+          %tr
+            %td
+              %span
+                %pre badge-overlap
+            %td Make the badge overlap with its container
+            %td Option
+          %tr
+            %td
+              %span
+                %pre data-badge="value"
+            %td Assigns a string value to the badge
+            %td Required
+  .width-12.grid-column-start-lg-2.width-lg-8
+    #guidelines.linkable-section
+      %h2 Guidelines
+  .width-6.grid-column-start-xl-2.width-xl-4
+    = image_tag "badges/do.webp", class: "img-fluid"
+    .documentation-do-bar
+    %p.documentation-do.mb-0 Do.
+    %p.mt-0 Badge value is clear and easy to read.
+  .width-6.width-xl-4
+    = image_tag "badges/do_not.webp", class: "img-fluid"
+    .documentation-do-not-bar
+    %p.documentation-do-not.mb-0 Do not.
+    %p.mt-0 Badge values should be easy to read. Recommended no more than three characters.
+  .width-6.grid-column-start-xl-2.width-xl-4
+    = image_tag "badges/color_do.webp", class: "img-fluid"
+    .documentation-do-bar
+    %p.documentation-do.mb-0 Do.
+    %p.mt-0 Uniform badge background color.
+  .width-6.width-xl-4
+    = image_tag "badges/color_do_not.webp", class: "img-fluid"
+    .documentation-do-not-bar
+    %p.documentation-do-not.mb-0 Do not.
+    %p.mt-0 Badge colors should not be variated for uniform user experience.

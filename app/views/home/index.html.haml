@@ -1,0 +1,55 @@
+%section.grid-12.mb-5#introduction
+  .width-12.width-lg-6.width-xl-5.grid-column-start-xl-2
+    %h1.font-primary Pragma UI
+    %h2.h4.font-primary Inspired by Material Design by Google.
+    %p
+      Pragma is a rails template that includes custom css library, javascript and HTML
+      templates/scaffolds. Provides a mobile responsive layout with all the modern essential components such as buttons,
+      card, checkboxes, dropdowns, modals, etc.
+    = link_to "Get Started", "", class: "button button-fab button-fab-extended"
+  .width-12.width-lg-6.width-xl-5#intro-animation
+    %article.intro-container
+      .intro-header
+        .intro-close
+        .intro-minimize
+        .intro-maximize
+        .intro-title
+          Pragma UI
+      .intro-window
+        .intro-nav
+          .intro-logo
+          %ul.intro-links
+            %li Link
+            %li Link
+            %li Link
+        .intro-body
+          .intro-cover
+          .intro-row
+            - 5.times.each do |t|
+              .intro-card
+                %strong.intro-card-title.m-0
+                  Lorem Ipsum
+                .intro-card-description
+                  Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+%section.grid-12#foundation
+  .width-12.width-xl-10.grid-column-start-xl-2.grid-12.mt-5
+    .width-12.width-lg-4.card.card-outlined
+      .card-header
+        .card-title Templates
+        .card-description
+          Designing a product or website is quite a time intensive endeavour. It is often a great help to start with a
+          basic template and go forward with the rest. Please explore the templates shared and chose your favorite.
+    .width-12.width-lg-4.card.card-outlined
+      .card-header
+        .card-title Components
+        .card-description
+          Components are at the core of a consistent experience on any website or product. Pragma attempts to design
+          the standard components with simplicity and modern expectations in mind. Check out the components to build your
+          own custom layout.
+    .width-12.width-lg-4.card.card-outlined
+      .card-header
+        .card-title Design
+        .card-description
+          Pragma is designed keeping in mind the ease of development and improved performance. It relies on CSS for all
+          visual effects, while leveraging javascript only where necessary to enable interactions. Pragma tries to avoid
+          relying on any libraries to provide functionality.

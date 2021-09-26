@@ -1,0 +1,136 @@
+= render partial: "layouts/shared/component_drawer"
+- regular_buttons = "<!-- Primary Color -->\n<button name=\"button\" class=\"button button-fab\"><i class=\"material-icons\">add</i></button>\n<!-- Alternate Color -->\n<button name=\"button\" class=\"button button-fab button-fab-alt\"><i class=\"material-icons\">add</i></button>"
+- extended_buttons = "<!-- Primary Color -->\n<button name=\"button\" class=\"button button-fab button-fab-extended\">Button</button>\n<!-- Alternate Color -->\n<button name=\"button\" class=\"button button-fab button-fab-alt button-fab-extended\">Button</button>"
+- context_buttons = "<!-- Fab Context Buttons -->\n<!-- Info Fab Button -->\n<button name=\"button\" class=\"button button-fab button-info\"><i class=\"material-icons\">add</i></button>\n<!-- Danger Fab Button -->\n<button name=\"button\" class=\"button button-fab button-danger\"><i class=\"material-icons\">add</i></button>\n<!-- Warning Fab Button -->\n<button name=\"button\" class=\"button button-fab button-warning\"><i class=\"material-icons\">add</i></button>\n<!-- Success Fab Button -->\n<button name=\"button\" class=\"button button-fab button-success\"><i class=\"material-icons\">add</i></button>\n<!-- Fab Extended Context Buttons -->\n<!-- Info Fab Button -->\n<button name=\"button\" class=\"button button-fab button-fab-extended button-info\">Button</button>\n<!-- Danger Fab Button -->\n<button name=\"button\" class=\"button button-fab button-fab-extended button-danger\">Button</button>\n<!-- Warning Fab Button -->\n<button name=\"button\" class=\"button button-fab button-fab-extended button-warning\">Button</button>\n<!-- Success Fab Button -->\n<button name=\"button\" class=\"button button-fab button-fab-extended button-success\">Button</button>"
+- additional_classes = "<!-- Fab Button Default Styles -->\n<a href=\"https://www.example.com\" class=\"button button-fab\"><i class=\"material-icons\">add</i></a>\n<!-- Alternate Fab Button Styles -->\n<button name=\"button\" type=\"submit\" class=\"button button-fab button-fab-alt\">Button</button>\n<!-- Extended Button Styles -->\n<button name=\"button\" class=\"button button-fab button-fab-extended\">Button</button>"
+%section.grid-12
+  .width-12.grid-column-start-lg-2.width-lg-8
+    #top.linkable-section
+      %h1 Buttons: Floating Action Button
+      %p.h4
+        A floating action button (FAB) represents the primary action of a screen.
+  .grid-column-start-lg-11.width-lg-2.d-none.d-lg-block
+    .list-group.documentation-subnavigation
+      = link_to 'Types', '#types', class: 'list-group-item'
+      = link_to 'Sample', '#sample', class: 'list-group-item'
+      = link_to 'Usage', '#usage', class: 'list-group-item'
+  .width-12.grid-column-start-lg-2.width-lg-8.grid-sm-1.grid-md-2
+    .width-2
+      #types.linkable-section
+        %h2 Types
+    %div
+      %p
+        = button_tag class: 'button button-fab mr-4' do
+          %i.material-icons add
+        = button_tag class: 'button button-fab button-fab-alt' do
+          %i.material-icons add
+      %h3 Regular Button
+      %p Text buttons are typically used for less important actions.
+    %div
+      %p
+        = button_tag 'Button', class: 'button button-fab button-fab-extended mr-4'
+        = button_tag 'Button', class: 'button button-fab button-fab-alt button-fab-extended'
+      %h3 Extended Button
+      %p Contained buttons have more emphasis, as they use a color fill and shadow.
+  .width-12.grid-column-start-lg-2.width-lg-8.grid-sm-1
+    %div
+      #sample.linkable-section
+        %h2 Sample
+        %p
+          A floating action button (FAB) performs the primary, or most common, action on a screen. It appears in front of
+          all screen content, typically as a circular shape with an icon in its center. FABs come in two types: regular
+          and extended.
+    %div
+      %h3 Regular Button
+      %p
+        = button_tag class: 'button button-fab mr-4' do
+          %i.material-icons add
+        = button_tag class: 'button button-fab button-fab-alt' do
+          %i.material-icons add
+      = raw Pygments.highlight(regular_buttons, :lexer => 'html')
+    %div
+      %h3 Extended Button
+      %p
+        = button_tag 'Button', class: 'button button-fab button-fab-extended mr-4'
+        = button_tag 'Button', class: 'button button-fab button-fab-alt button-fab-extended'
+      = raw Pygments.highlight(extended_buttons, :lexer => 'html')
+    %div
+      %h3 Context Button
+      %p
+        = button_tag class: 'button button-fab button-info mr-4' do
+          %i.material-icons add
+        = button_tag class: 'button button-fab button-danger mr-4' do
+          %i.material-icons add
+        = button_tag class: 'button button-fab button-warning mr-4' do
+          %i.material-icons add
+        = button_tag class: 'button button-fab button-success mr-4' do
+          %i.material-icons add
+        %br
+        %br
+        = button_tag 'Button', class: 'button button-fab button-fab-extended button-info mr-4'
+        = button_tag 'Button', class: 'button button-fab button-fab-extended button-danger mr-4'
+        = button_tag 'Button', class: 'button button-fab button-fab-extended button-warning mr-4'
+        = button_tag 'Button', class: 'button button-fab button-fab-extended button-success mr-4'
+      = raw Pygments.highlight(context_buttons, :lexer => 'html')
+  .width-12.grid-column-start-lg-2.width-lg-8
+    #usage.linkable-section
+      %h2 Include a Button Component
+      %ol
+        %li
+          Code a
+          %pre button
+          or
+          %pre a
+          element. Include any desired attributes and values, such as an id or event handler, and add a text or icon
+          caption appropriately.
+          %br
+          = raw Pygments.highlight("<button>Button</button>\n<a href=\"https://www.button.com\">Button</a>", :lexer => 'html')
+        %li
+          Add one or more Pragma classes, separated by spaces, to the element using the class attribute.
+          %br
+          = raw Pygments.highlight(additional_classes, :lexer => 'html')
+      %h3 Configuration Options
+      %p The table below lists the available classes and their effects.
+      %table
+        %thead
+          %tr
+            %th Class
+            %th Effects
+            %th Remarks
+        %tbody
+          %tr
+            %td
+              %span
+                %pre button
+            %td Defines button component.
+            %td Required
+          %tr
+            %td
+              %span
+                %pre button-fab
+            %td Defines fab button component with primary background color.
+            %td Required
+          %tr
+            %td
+              %span
+                %pre button-fab-alt
+            %td Adds an alternate background color to the button.
+            %td Optional
+          %tr
+            %td
+              %span
+                %pre button-fab-extended
+            %td Turns a fab button into an extended fab button.
+            %td Required on a fab button.
+          %tr
+            %td
+              %span
+                %pre button-info
+                %br
+                %pre button-danger
+                %br
+                %pre button-warning
+                %br
+                %pre button-success
+            %td Adds context colors to the buttons.
+            %td Optional

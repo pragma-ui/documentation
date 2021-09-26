@@ -1,0 +1,119 @@
+/****** Utilities ******/
+$breakpoints: (
+				xs: 0,
+				sm: 576px,
+				md: 768px,
+				lg: 992px,
+				xl: 1200px
+) !default;
+$displays: none, inline, inline-block, block, table, table-row, table-cell, flex, inline-flex !default;
+$columns: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 !default;
+$spacer: 0, 1, 2, 3, 4, 5 !default;
+$directions: "none", "l", "r", "b", "t" !default;
+$text-aligns: start, left, center, right, justify, end !default;
+$variations: (
+				info: (
+								background: #cfe2ff,
+								font: #084298,
+								border: #b6d4fe,
+								icon: '\E88E',
+				),
+				danger: (
+								background: #f8d7da,
+								font: #842029,
+								border: #f5c2c7,
+								icon: '\E99A',
+				),
+				success: (
+								background: #d1e7dd,
+								font: #0f5132,
+								border: #badbcc,
+								icon: '\E86C',
+				),
+				warning: (
+								background: #fff3cd,
+								font: #664d03,
+								border: #ffecb5,
+								icon: '\E8B2',
+				),
+) !default;
+
+/****** Typography Styles ******/
+$prefered-font: 'Roboto', 'Helvetica', 'Arial', sans-serif !default;
+
+/****** Theming Styles ******/
+$primary-background-color: #e98074; /* Primary Background Color */
+$primary-font-color: #e85a4f; /* Primary Text Color usually used on the primary background */
+$alternate-background-color: #55BDCA; /* Alternate Background Color */
+$alternate-font-color: #e85a4f; /* Alternate Text Color usually used on the alternate background #F27D42*/
+
+/****** Badge Styles ******/
+$badge-background-color: #e98074;
+$badge-color: #ffffff;
+
+/****** Body Styles ******/
+$body-color: #8e8d8a; /* Color of the text of the document */
+$body-links: #212121; /* Color of the links in the body */
+$body-font-size: 1.1rem; /* Font size of the body text */
+$body-background: #eae7dc;
+$body-bottom-margin: 2rem;
+
+/****** Breadcrumb Styles ******/
+$breadcrumb-background-color: #e98074;
+$breadcrumb-active-color: #ffffff;
+$breadcrumb-color: #ffffff;
+$breadcrumb-hover: #e85a4f;
+$breadcrumb-divider: "/";
+
+/****** Button Styles ******/
+$button-default-color: #e85a4f;
+$button-default-hover-background: #e85a4f;
+$button-default-hover-color: #ffffff;
+$button-alt-background: #55BDCA;
+$button-alt-color: #ffffff;
+$button-fab-default-background: #e85a4f;
+$button-fab-default-color: #ffffff;
+
+
+/******* Header Styles *******/
+$header-height: 55px; /* Height Header */
+$header-font-size: 1.1rem; /* Header links and text size */
+$header-background: #e85a4f;
+$header-font-color: #ffffff;
+$header-link-hover-background: #e98074;
+
+/******* Drawer Styles *******/
+$drawer-width: 15rem;
+$drawer-brand-color: #ffffff;
+
+/******* Card Styles *******/
+$card-background-default: #eae7dc;
+$card-outline-color: #d8c3a5;
+$card-title-font-size: 1.5rem;
+$card-title-color: #e85a4f;
+$card-subtitle-font-size: 1.15rem;
+$card-subtitle-color: #e98074;
+
+/******* Drawer Styles *******/
+$drawer-active-background: #e98074;
+$drawer-active-font-color: #ffffff;
+
+/******* List Styles *******/
+$list-group-background: #FFFFFF;
+$list-group-outline: #e0e0e0;
+$list-group-item-highlight: #F5F5F5;
+
+/******* Loading Styles *******/
+$loader-background-color: rgba(62, 188, 212, 0.25);
+$loader-loading-color: rgb(62, 188, 212);
+
+/******* Notice Styles *******/
+$notice-border: #616161;
+
+/******* Table Styles *******/
+$table-head-background-color: #e98074;
+$table-head-color: #FFFFFF;
+$table-border-color: #e85a4f;
+$table-elevated-background-color: #eae7dc;
+$table-elevated-header-background-color: #e98074;
+$table-loader-color: #e85a4f;

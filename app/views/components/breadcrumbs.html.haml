@@ -1,0 +1,168 @@
+= render partial: "layouts/shared/component_drawer"
+- basic_breadcrumb ="<nav class=\"breadcrumb-nav\">\n<ol class=\"breadcrumb\">\n<li class=\"active\">Home</li>\n</ol>\n</nav>\n<nav class=\"breadcrumb-nav\">\n<ol class=\"breadcrumb\">\n<li>Home</li>\n<li class=\"active\">Library</li>\n</ol>\n</nav>\n<nav class=\"breadcrumb-nav\">\n<ol class=\"breadcrumb\">\n<li>Home</li>\n<li>Library</li>\n<li class=\"active\">Data</li>\n</ol>\n</nav>"
+- process_breadcrumb = "<nav class=\"process-breadcrumbs\">\n  <ol class=\"breadcrumb\">\n    <li class=\"active\"><i class=\"material-icons\">home</i>Home</li>\n  </ol>\n</nav>\n<nav class=\"process-breadcrumbs\">\n  <ol class=\"breadcrumb\">\n    <li><i class=\"material-icons\">home</i>Home</li>\n    <li class=\"active\"><i class=\"material-icons\">store</i>Shop</li>\n  </ol>\n</nav>\n<nav class=\"process-breadcrumbs\">\n  <ol class=\"breadcrumb\">\n    <li><i class=\"material-icons\">home</i>Home</li>\n    <li><i class=\"material-icons\">store</i>Shop</li>\n    <li class=\"active\"><i class=\"material-icons\">shopping_cart</i>Cart</li>\n  </ol>\n</nav>\n<nav class=\"process-breadcrumbs\">\n  <ol class=\"breadcrumb\">\n    <li><i class=\"material-icons\">home</i>Home</li>\n    <li><i class=\"material-icons\">store</i>Shop</li>\n    <li><i class=\"material-icons\">shopping_cart</i>Cart</li>\n    <li class=\"active\"><i class=\"material-icons\">credit_card</i>Checkout</li>\n  </ol>\n</nav>"
+%section.grid-12
+  .width-12.grid-column-start-lg-2.width-lg-8
+    #top.linkable-section
+      %h1 Breadcrumbs
+      %p.h4
+        Pragma breadcrumb component is designed to display current location of the user in the hierarchy of pages or process steps. Separators and other designs are added by css.
+      = image_tag "breadcrumbs/header.webp", class:"img-fluid"
+  .grid-column-start-lg-11.width-lg-2.d-none.d-lg-block
+    .list-group.documentation-subnavigation
+      = link_to 'Sample', '#sample', class: 'list-group-item'
+      = link_to 'Usage', '#usage', class: 'list-group-item'
+      = link_to 'Guidelines', '#guidelines', class: 'list-group-item'
+  .width-12.grid-column-start-lg-2.width-lg-8
+    #sample.linkable-section
+      %h2 Sample
+      %p.h4 Basic
+      .example-container
+        %nav.breadcrumb-nav
+          %ol.breadcrumb
+            %li.active Home
+        %nav.breadcrumb-nav
+          %ol.breadcrumb
+            %li Home
+            %li.active Library
+        %nav.breadcrumb-nav
+          %ol.breadcrumb
+            %li Home
+            %li Library
+            %li.active Data
+      = raw Pygments.highlight(basic_breadcrumb, :lexer => 'html')
+      %p.h4 Process Breadcrumb
+      .example-container
+        %nav.process-breadcrumbs
+          %ol.breadcrumb
+            %li.active
+              %i.material-icons> home
+              Home
+        %nav.process-breadcrumbs
+          %ol.breadcrumb
+            %li
+              %i.material-icons> home
+              Home
+            %li.active
+              %i.material-icons> store
+              Shop
+        %nav.process-breadcrumbs
+          %ol.breadcrumb
+            %li
+              %i.material-icons> home
+              Home
+            %li
+              %i.material-icons> store
+              Shop
+            %li.active
+              %i.material-icons> shopping_cart
+              Cart
+        %nav.process-breadcrumbs
+          %ol.breadcrumb
+            %li
+              %i.material-icons> home
+              Home
+            %li
+              %i.material-icons> store
+              Shop
+            %li
+              %i.material-icons> shopping_cart
+              Cart
+            %li.active
+              %i.material-icons> credit_card
+              Checkout
+      = raw Pygments.highlight(process_breadcrumb, :lexer => 'html')
+    #usage.linkable-section
+      %h2 Include a Breadcrumb Component
+      %ol
+        %li
+          Create a nav element with nested list element - ordered or unordered. Include any desired attributes and content.
+          %br
+          = raw Pygments.highlight('<nav><ol></ol></nav>', :lexer => 'html')
+        %li
+          Add the one or more Pragma classes, separated by spaces, to the element using the class attribute. Also add class
+          %pre breadcrumb-nav
+          or
+          %pre process-breadcrumb
+          for step by step actions. for badges.
+          %br
+          = raw Pygments.highlight('<nav class="breadcrumb-nav"><ol class="breadcrumb"></ol></nav>', :lexer => 'html')
+          = raw Pygments.highlight('<nav class="process-breadcrumb"><ol class="breadcrumb"></ol></nav>', :lexer => 'html')
+        %li
+          List items in
+          %pre breadcrumb-nav
+          will behave as simple breadcrumb, list items
+          %pre process-breadcrumb
+          will behave as step by step breadcrumbs.
+      %h3 Changing the Separator
+      %p
+        Separators are automatically added in CSS through
+        %code ::before
+        and
+        = succeed "." do
+          %code content
+        = succeed "." do
+          %code $breadcrumb-divider
+        %code quote
+        function is needed to generate the quotes around a string, so if you want &gt; as separator, you can use this:
+      = raw Pygments.highlight('$breadcrumb-divider: quote(">");', :lexer => 'css')
+      %p
+        It’s also possible to use a
+        = succeed ":" do
+          %strong base64 embedded SVG icon
+      = raw Pygments.highlight("$breadcrumb-divider: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC\n9zdmciIHdpZHRoPSI4IiBoZWlnaHQ9IjgiPjxwYXRoIGQ9Ik0yLjUgMEwxIDEuNSAzLjUgNCAxIDYuNSAy\nLjUgOGw0LTQtNC00eiIgZmlsbD0iY3VycmVudENvbG9yIi8+PC9zdmc+);", :lexer => 'css')
+      %p
+        The separator can be removed by setting
+        %code $breadcrumb-divider
+        to
+        = succeed ":" do
+          %code none
+      = raw Pygments.highlight('$breadcrumb-divider: none;', :lexer => 'css')
+      %h3 Configuration Options
+      %p The table below lists the available classes and their effects.
+      %table
+        %thead
+          %tr
+            %th Class
+            %th Effects
+            %th Remarks
+        %tbody
+          %tr
+            %td
+              %span
+                %pre breadcrumb-nav
+            %td Defines breadcrumb nav component
+            %td
+              Required on a nav element
+              %br
+              Mutually exclusive with
+              %pre .process-breadcrumb
+          %tr
+            %td
+              %span
+                %pre process-breadcrumb
+            %td Defines process breadcrumb nav component.
+            %td
+              Required on a nav element
+              %br
+              Mutually exclusive with
+              %pre .breadcrumb-nav
+          %tr
+            %td
+              %span
+                %pre breadcrumb
+            %td Defined list for containing the breadcrumb items.
+            %td Required on a list element - ol/ul
+  .width-12.grid-column-start-lg-2.width-lg-8
+    #guidelines.linkable-section
+      %h2 Guidelines
+  .width-6.grid-column-start-xl-2.width-xl-4
+    = image_tag "breadcrumbs/do.webp", class:"img-fluid"
+    .documentation-do-bar
+    %p.documentation-do.mb-0 Do.
+    %p.mt-0 Breadcrumbs should only be in one row.
+  .width-6.width-xl-4
+    = image_tag "breadcrumbs/do_not.webp", class:"img-fluid"
+    .documentation-do-not-bar
+    %p.documentation-do-not.mb-0 Do not.
+    %p.mt-0 Breadcrumbs should not overflow into the next row.

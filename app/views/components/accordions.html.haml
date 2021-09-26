@@ -1,0 +1,173 @@
+= render partial: "layouts/shared/component_drawer"
+- manually_define = "// Get element that needs to be defined as an accordion \nlet accordionElement = document.querySelector(\"#accordionElement\");\n// Define the accordion\n"
+- manually_define += "let newAccordion = new PragmaAccordion(accordionElement)\n// Manually toggle accordion visibility\nnewAccordion.toggleAccordion()\n// Trigger a function on an accordion being shown\n"
+- manually_define += "newAccordion.addEventListener('shown.pragma.accordion', function(){\n  // your code here ...\n});"
+%section.grid-12
+  .width-12.width-lg-8.grid-column-start-lg-2
+    #top.linkable-section
+      %h1
+        Accordions
+        %small.label Javascript
+      %p
+        Pragma encourages the use of accordions for organizing and displaying content for nested information. These can
+        be used for FAQs, Comments, etc.
+      .notice.notice-icon.notice-info
+        .notice-header Information
+        .notice-body This component uses designs and functionality of lists and accordions.
+    #sample.linkable-section
+      %h2 Sample
+      %p.h4 List with Accordions
+      .list-group.list-elevated.list-outlined
+        .list-group-item.accordion
+          .accordion-header How can I change my shipping address?
+          .accordion-body
+            By default, the last used shipping address will be saved into to your Sample Store account. When you are
+            checking out your order, the default shipping address will be displayed and you have the option to amend it if
+            you need to.
+        .list-group-item.accordion
+          .accordion-header How do I activate my account?
+          .accordion-body
+            The instructions to activate your account will be sent to your email once you have submitted the registration
+            form. If you did not receive this email, your email service provider’s mailing software may be blocking it.
+            You can try checking your junk / spam folder or contact us at help@samplestore.com.
+        .list-group-item.accordion
+          .accordion-header What do you mean by points? How do I earn it?
+          .accordion-body
+            Because you are important to us, we want to know what you think about the products. As an added value, every
+            time you rate the products you earn points which go straight to your account. 1 point are added to your
+            account for every review that you give. You will need those points in order to redeem the sample products. So
+            keep rating the products to keep earning points!
+      = raw Pygments.highlight( "<div class=\"list-group list-elevated list-outlined\">\n  <div class=\"list-group-item accordion\">\n    <div class=\"accordion-header\">How can I change my shipping address?</div>\n    <div class=\"accordion-body\">\n       By default, the last used shipping address will be saved into to your Sample \nStore account. When you are checking out your order, the default shipping address \nwill be displayed and you have the option to amend it if you need to.\n    </div>\n  </div>\n  <div class=\"list-group-item accordion\">\n    <div class=\"accordion-header\">How do I activate my account?</div>\n    <div class=\"accordion-body\">\n       The instructions to activate your account will be sent to your email once \nyou have submitted the registration form. If you did not receive this email, \nyour email service provider’s mailing software may be blocking it. \nYou can try checking your junk / spam folder or contact us at help@samplestore.com.\n    </div>\n  </div>\n  <div class=\"list-group-item accordion\">\n    <div class=\"accordion-header\">What do you mean by points? How do I earn it?</div>\n    <div class=\"accordion-body\">\n       Because you are important to us, we want to know what you think about the products. \nAs an added value, every time you rate the products you earn points which go \nstraight to your account. 1 point are added to your account for every review \nthat you give. You will need those points in order to redeem the sample products. \nSo keep rating the products to keep earning points!\n    </div>\n  </div>\n</div>" , :lexer => 'html')
+      %p.h4 Form with Accordions
+      %form.list-group.list-outlined
+        .list-group-item.accordion.is-visible
+          .accordion-header
+            Personal Information
+          .accordion-body
+            .grid-1.grid-md-2
+              .field.width-1
+                = label_tag :first_name
+                = text_field_tag :first_name, nil
+              .field.width-1
+                = label_tag :last_name
+                = text_field_tag :last_name, nil
+              .field.width-1
+                = label_tag :email
+                = email_field_tag :email, nil
+              .field.width-1
+                = label_tag :phone_number
+                = phone_field_tag :phone_number, nil
+        .list-group-item.accordion
+          .accordion-header
+            Physical Address
+          .accordion-body
+            .grid-1.grid-md-2
+              .field.width-1
+                = label_tag :street_1
+                = text_field_tag :street_1, nil
+              .field.width-1
+                = label_tag :street_2
+                = text_field_tag :street_2, nil
+            .grid-1.grid-md-3
+              .field.width-1
+                = label_tag :city
+                = text_field_tag :city, nil
+              .field.width-1
+                = label_tag :state
+                = text_field_tag :state, nil
+              .field.width-1
+                = label_tag :zipcode
+                = text_field_tag :zipcode, nil
+        .list-group-item
+          %button.button.button-danger{:name => "button"} cancel
+          %button.button.button-success.ml-2{:name => "button"} submit
+      = raw Pygments.highlight( "<form class=\"list-group list-outlined\" action=\"\" accept-charset=\"UTF-8\" method=\"post\">\n  <div class=\"list-group-item accordion is-visible\">\n    <div class=\"accordion-header\">Personal Information</div>\n    <div class=\"accordion-body\">\n      <div class=\"grid-1 grid-md-2\">\n        <div class=\"field width-1\">\n          <label for=\"first_name\">First name</label>\n          <input type=\"text\" name=\"first_name\" id=\"first_name\">\n        </div>\n        <div class=\"field width-1\">\n        <label for=\"last_name\">Last name</label>\n          <input type=\"text\" name=\"last_name\" id=\"last_name\">\n          </div>\n        <div class=\"field width-1\">\n          <label for=\"email\">Email</label>\n          <input type=\"email\" name=\"email\" id=\"email\">\n        </div>\n        <div class=\"field width-1\">\n          <label for=\"phone_number\">Phone number</label>\n          <input type=\"tel\" name=\"phone_number\" id=\"phone_number\">\n        </div>\n      </div>\n    </div>\n  </div>\n  <div class=\"list-group-item accordion\">\n    <div class=\"accordion-header\">Physical Address</div>\n    <div class=\"accordion-body\">\n      <div class=\"grid-1 grid-md-2\">\n        <div class=\"field width-1\">\n          <label for=\"street_1\">Street 1</label>\n          <input type=\"text\" name=\"street_1\" id=\"street_1\">\n        </div>\n        <div class=\"field width-1\">\n          <label for=\"street_2\">Street 2</label>\n          <input type=\"text\" name=\"street_2\" id=\"street_2\">\n        </div>\n      </div>\n      <div class=\"grid-1 grid-md-3\">\n        <div class=\"field width-1\">\n          <label for=\"city\">City</label>\n          <input type=\"text\" name=\"city\" id=\"city\">\n        </div>\n        <div class=\"field width-1\">\n          <label for=\"state\">State</label>\n          <input type=\"text\" name=\"state\" id=\"state\">\n        </div>\n        <div class=\"field width-1\">\n          <label for=\"zipcode\">Zipcode</label>\n          <input type=\"text\" name=\"zipcode\" id=\"zipcode\">\n        </div>\n      </div>\n    </div>\n  </div>\n  <div class=\"list-group-item\">\n    <button name=\"button\" type=\"submit\" class=\"button\">cancel</button>\n    <input type=\"submit\" name=\"commit\" value=\"submit\" class=\"button button-colored ml-2\" data-disable-with=\"submit\">\n  </div>\n</form>" , :lexer => 'html')
+    #usage.linkable-section
+      %h2 Include an Accordion Component
+      %ol
+        %li Create an element or div. Include any desired attributes and content.
+        %li
+          Add the
+          %pre accordion
+          class to define the component.
+        %li
+          Accordion required accordion header and accordion body. Accordion header is used to collapse and exapand the
+          accordion body.
+      %h3 Configuration Options
+      %p The table below lists the available classes and their effects.
+      %table
+        %thead
+          %tr
+            %th Class
+            %th Effects
+            %th Remarks
+        %tbody
+          %tr
+            %td
+              %span
+                %pre accordion
+            %td Defines an accordion component
+            %td Required
+          %tr
+            %td
+              %span
+                %pre accordion-header
+            %td Defines the accordion header.
+            %td Required
+          %tr
+            %td
+              %span
+                %pre accordion-body
+            %td Defines an accordion body
+            %td Required
+    %h2 Understanding Accordion Plugin
+    #methods.linkable-section
+      %h3 Methods
+      %div
+        %pre.h4.font-alt new PragmaAccordion(element)
+        %p Activates your content as an Accordion element.
+        %pre.h4.font-alt .toggleAccordion()
+        %p
+          Toggles the accordion visibility.
+          %strong
+            Returns to the caller before the collapsible element has actually been shown
+            or hidden
+          (i.e. before the
+          %code shown.pragma.accordion
+          or
+          %code hidden.pragma.accordion
+          event occurs).
+    #events.linkable-section
+      %h3 Events
+      %p Accordion class exposes a few events for hooking into the functionality.
+      %table
+        %thead
+          %tr
+            %th Event Type
+            %th Description
+        %tbody
+          %tr
+            %td show.pragma.accordion
+            %td
+              This event fires immediately when the
+              %pre show
+              instance method is called.
+          %tr
+            %td shown.pragma.accordion
+            %td This event is fired when an accordion element has been made visible to the user.
+          %tr
+            %td hide.pragma.accordion
+            %td
+              This event fires immediately when the
+              %pre hide
+              instance method is called.
+          %tr
+            %td hidden.pragma.accordion
+            %td This event is fired when an accordion element has been hidden from the user.
+      = raw Pygments.highlight(manually_define, :lexer => 'javascript')
+  .grid-column-start-lg-11.width-lg-2.d-none.d-lg-block
+    .list-group.documentation-subnavigation
+      = link_to 'Sample', '#sample', class:'list-group-item'
+      = link_to 'Usage', '#usage', class:'list-group-item'
+      = link_to 'Methods', '#methods', class:'list-group-item'
+      = link_to 'Events', '#events', class:'list-group-item'

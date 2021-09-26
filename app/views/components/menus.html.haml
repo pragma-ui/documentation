@@ -1,0 +1,210 @@
+- drop_default = "<div class=\"menu-container\">\n  <button class=\"button-colored\" id=\"down-menu\">John Doe</button>\n  <div class=\"menu-content\">\n    <div class=\"menu\" data-trigger=\"#down-menu\">\n      <a class=\"menu-item\" href=\"#\">Some action</a>\n      <a class=\"menu-item\" href=\"#\">Another action</a>\n      <div class=\"divider\"></div>\n      <a class=\"menu-item\" href=\"#\">Some action</a>\n      <a class=\"menu-item\" href=\"#\">Yet another action</a>\n    </div>\n  </div>\n</div>"
+- dropdown = "<!-- Menu Left Aligned -->\n<div class=\"menu-container\">\n  <button class=\"button-colored\" id=\"down-left-menu\">Drop Down Left Aligned</button>\n  <div class=\"menu-content\">\n    <div class=\"menu menu-down-left\" data-trigger=\"#down-left-menu\">\n      <a class=\"menu-item\" href=\"#\">Some action</a>\n      <a class=\"menu-item\" href=\"#\">Another action</a>\n      <div class=\"divider\"></div>\n      <a class=\"menu-item\" href=\"#\">Some action</a>\n      <a class=\"menu-item\" href=\"#\">Yet another action</a>\n    </div>\n  </div>\n</div>\n<!-- Menu Right Aligned -->\n<div class=\"menu-container\">\n  <button class=\"button-colored\" id=\"down-right-menu\">Drop Down Right Aligned</button>\n  <div class=\"menu-content\">\n    <div class=\"menu menu-down-right\" data-trigger=\"#down-right-menu\">\n      <a class=\"menu-item\" href=\"#\">Some action</a>\n      <a class=\"menu-item\" href=\"#\">Another action</a>\n      <div class=\"divider\"></div>\n      <a class=\"menu-item\" href=\"#\">Some action</a>\n      <a class=\"menu-item\" href=\"#\">Yet another action</a>\n    </div>\n  </div>\n</div>"
+- dropup = "<!-- Dropup Left Aligned -->\n<div class=\"menu-container\">\n  <button class=\"button-colored\" id=\"up-left-menu\">Drop Down Left Aligned</button>\n  <div class=\"menu-content\">\n    <div class=\"menu menu-up-left\" data-trigger=\"#up-left-menu\">\n      <a class=\"menu-item\" href=\"#\">Some action</a>\n      <a class=\"menu-item\" href=\"#\">Another action</a>\n      <div class=\"divider\"></div>\n      <a class=\"menu-item\" href=\"#\">Some action</a>\n      <a class=\"menu-item\" href=\"#\">Yet another action</a>\n    </div>\n  </div>\n</div>\n<!-- Dropup Right Aligned -->\n<div class=\"menu-container\">\n  <button class=\"button-colored\" id=\"up-right-menu\">Drop Down Right Aligned</button>\n  <div class=\"menu-content\">\n    <div class=\"menu menu-up-right\" data-trigger=\"#up-right-menu\">\n      <a class=\"menu-item\" href=\"#\">Some action</a>\n      <a class=\"menu-item\" href=\"#\">Another action</a>\n      <div class=\"divider\"></div>\n      <a class=\"menu-item\" href=\"#\">Some action</a>\n      <a class=\"menu-item\" href=\"#\">Yet another action</a>\n    </div>\n  </div>\n</div>"
+- dropdown_structure = "<div class=\"menu-container\">\n  <button class=\"button-colored\" id=\"menu-id\">Menu Text</button>\n  <div class=\"menu-content\">\n    <div class=\"menu {menu-position}\" data-trigger=\"#menu-id\">\n      # Menu Items\n    </div>\n  </div>\n</div>"
+- manually_define = "// Get element that is a menu element\nlet menu = document.querySelector(\".menu\")\n// Define the menu functionality\nlet newMenu = new PragmaMenu(menu)\n// Manually toggle menu\nnewMenu.toggleMenu()\n// Trigger a function on a menu opening\nnewMenu.addEventListener('opening.pragma.menu', function(){\n  // your code here ...\n});"
+= render partial: "layouts/shared/component_drawer"
+%section.grid-12
+  .width-12.grid-column-start-lg-2.width-lg-8
+    #top.linkable-section
+      %h1
+        Menus
+        %small.label Javascript
+      %p.h4
+        Toggle contextual overlays for displaying lists of links and more with the Pragma menu plugin.
+  .grid-column-start-lg-11.width-lg-2.d-none.d-lg-block
+    .list-group.documentation-subnavigation
+      = link_to 'Sample', '#sample', class: 'list-group-item'
+      = link_to 'Usage', '#usage', class: 'list-group-item'
+      = link_to 'Methods', '#methods', class: 'list-group-item'
+      = link_to 'Events', '#events', class: 'list-group-item'
+      = link_to 'Principles', '#principles', class: 'list-group-item'
+  .width-12.grid-column-start-lg-2.width-lg-8.grid-sm-2
+    %div
+      #sample.linkable-section.width-2
+        %h2 Sample
+    .width-2
+      %h4.mt-2 Default Drop Menu
+      .menu-container
+        %button#down-menu.button-colored John Doe
+        .menu-content
+          .menu{"data-trigger" => "#down-menu"}
+            = link_to 'Some action', '#', class:'menu-item'
+            = link_to 'Another action', '#', class:'menu-item'
+            .divider
+            = link_to 'Some action', '#', class:'menu-item'
+            = link_to 'Yet another action', '#', class:'menu-item'
+      = raw Pygments.highlight(drop_default, :lexer => 'html')
+    .width-1
+      %h4.mt-2 Lower Left
+      .menu-container
+        %button#down-left-menu.button-colored Drop Down Left Aligned
+        .menu-content
+          .menu.menu-down-left{"data-trigger" => "#down-left-menu"}
+            = link_to 'Some action', '#', class:'menu-item'
+            = link_to 'Another action', '#', class:'menu-item'
+            .divider
+            = link_to 'Some action', '#', class:'menu-item'
+            = link_to 'Yet another action', '#', class:'menu-item'
+    .width-1
+      %h4.mt-2 Lower Right
+      .menu-container
+        %button#down-right-menu.button-colored Drop Down Right Aligned
+        .menu-content
+          .menu.menu-down-right{"data-trigger" => "#down-right-menu"}
+            = link_to 'Some action', '#', class:'menu-item'
+            = link_to 'Another action', '#', class:'menu-item'
+            .divider
+            = link_to 'Some action', '#', class:'menu-item'
+            = link_to 'Yet another action', '#', class:'menu-item'
+    .width-2
+      = raw Pygments.highlight(dropdown, :lexer => 'html')
+    .width-1
+      %h4.mt-2 Lower Left
+      .menu-container
+        %button#up-left-menu.button-colored Drop Down Left Aligned
+        .menu-content
+          .menu.menu-up-left{"data-trigger" => "#up-left-menu"}
+            = link_to 'Some action', '#', class:'menu-item'
+            = link_to 'Another action', '#', class:'menu-item'
+            .divider
+            = link_to 'Some action', '#', class:'menu-item'
+            = link_to 'Yet another action', '#', class:'menu-item'
+    .width-1
+      %h4.mt-2 Lower Right
+      .menu-container
+        %button#up-right-menu.button-colored Drop Down Right Aligned
+        .menu-content
+          .menu.menu-up-right{"data-trigger" => "#up-right-menu"}
+            = link_to 'Some action', '#', class:'menu-item'
+            = link_to 'Another action', '#', class:'menu-item'
+            .divider
+            = link_to 'Some action', '#', class:'menu-item'
+            = link_to 'Yet another action', '#', class:'menu-item'
+    .width-2
+      = raw Pygments.highlight(dropup, :lexer => 'html')
+  .width-12.grid-column-start-lg-2.width-lg-8
+    %div
+      #usage.linkable-section
+        %h2 Usage
+      %div
+        %h2 Include a Menu Component
+        %ol
+          %li
+            Code a
+            %pre div
+            element. Add
+            %pre menu-container
+            class to create the container.
+          %li
+            Add a
+            %pre button
+            or
+            %pre a
+            element to trigger the menu with the id with the menu id.
+          %li
+            Add a
+            %pre div
+            element for the menu content.
+          %li
+            Add a
+            %pre div
+            or
+            %pre ul
+            element for the menu items. Add
+            %pre data-trigger
+            attribute with the id of the trigger button.
+          %li
+            Below is dialog structure.
+            %br
+            #{raw Pygments.highlight(dropdown_structure, :lexer => 'html')}
+        %h3 Configuration Options
+        %p The table below lists the available classes and their effects.
+        %table
+          %thead
+            %tr
+              %th Class
+              %th Effects
+              %th Remarks
+          %tbody
+            %tr
+              %td
+                %span
+                  %pre menu-container
+              %td Defines the menu container.
+              %td Required
+            %tr
+              %td
+                %span
+                  %pre menu-content
+              %td Defines the menu content.
+              %td Required
+            %tr
+              %td
+                %span
+                  %pre menu
+              %td
+                Defines the menu to be displayed when active.
+                %br/
+                Add
+                %pre data-trigger="#menu-id"
+                as a selector to define the trigger.
+              %td Required
+            %tr
+              %td
+                %span
+                  %pre menu-item
+              %td Menu item to be encapsulated in the menu element.
+              %td Required
+            %tr
+              %td
+                %span
+                  %pre menu-down-left
+                  %pre menu-down-right
+                  %pre menu-up-left
+                  %pre menu-up-right
+              %td Defines the menu display position.
+              %td Optional
+  .width-12.grid-column-start-lg-2.width-lg-8
+    %div
+      %h2 Understanding Dialogs Plugin
+      #methods.linkable-section
+        %h3 Methods
+        %div
+          %pre.h4.font-alt new PragmaMenu(element)
+          %p Activates your content as a Menu element.
+          %pre.h4.font-alt .toggleMenu()
+          %p
+            Toggles the menu display.
+            %strong Returns to the caller before the dialog element has actually been opened
+            (i.e. before the
+            %code open.pragma.menu
+            event occurs).
+      #events.linkable-section
+        %h3 Events
+        %p Dialog class exposes a few events for hooking into the functionality.
+        %table
+          %thead
+            %tr
+              %th Event Type
+              %th Description
+          %tbody
+            %tr
+              %td opening.pragma.menu
+              %td
+                This event fires immediately when the
+                %pre open
+                instance method is called.
+            %tr
+              %td open.pragma.menu
+              %td This event is fired when a menu element has been opened for the user.
+            %tr
+              %td closing.pragma.menu
+              %td
+                This event fires immediately when the
+                %pre close
+                instance method is called.
+            %tr
+              %td close.pragma.menu
+              %td This event is fired when a menu element has been closed for the user.
+        = raw Pygments.highlight(manually_define, :lexer => 'javascript')

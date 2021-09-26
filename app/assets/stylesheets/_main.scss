@@ -1,0 +1,11 @@
+@import "variables";
+
+main {
+	margin-top: $header-height;
+	margin-left: 1.5rem;
+	margin-right: 1.5rem;
+
+	&.fixed-drawer-layout {
+		margin-left: $drawer-width + 1.5rem;
+	}
+}
