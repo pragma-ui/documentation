@@ -41,6 +41,10 @@
       height: $header-height;
       text-transform: capitalize;
 
+			.drawer-header--brand-logo{
+				width: 50px;
+			}
+
       .drawer-header--brand-title {
         padding-left: 8px;
         color: $drawer-brand-color !important;

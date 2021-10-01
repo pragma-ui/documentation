@@ -1,8 +1,9 @@
 !!!
 %html
   %head
+    = render "application/favicon"
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}
-    %title Pragma UI
+    %title #{page_title}
     %meta{:content => "width=device-width, initial-scale=1, shrink-to-fit=no", :name => "viewport"}
     = csrf_meta_tags
     = csp_meta_tag
@@ -16,21 +17,10 @@
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
   %body
     = render partial: "layouts/shared/header"
+    = render partial: "layouts/shared/notification"
     %main
       = yield
       - if action_name === 'component'
         %p.documentation-top
           = link_to '#top', class: "button button-fab" do
             %i.material-icons keyboard_arrow_up
-    -#<%= render partial: 'layouts/header' %>
-    -#<main>
-    -#  <%= render partial: 'layouts/notifications' %>
-    -#  <%= yield %>
-    -#  <% if action_name == 'components' %>
-    -#    <p class="documentation-top">
-    -#      <%= link_to '#top', class:'button button-fab button-fab-alt' do %>
-    -#        <i class="material-icons">keyboard_arrow_up</i>
-    -#      <% end %>
-    -#    </p>
-    -#  <% end %>
-    -#</main>

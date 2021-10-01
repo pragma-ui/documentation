@@ -1,0 +1,8 @@
+- flash.each do |msg_type, message|
+  - unless msg_type=="timedout"
+    .notification.grid-12
+      .width-12.grid-column-start-lg-3.width-lg-8.p-left-4.p-right-4
+        .notification-message
+          = message
+        .notification-close.material-icons{role: :button}
+          close

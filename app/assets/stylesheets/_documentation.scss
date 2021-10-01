@@ -50,6 +50,10 @@ li .highlight pre {
 	color: #ffffff;
 	vertical-align: top;
 	margin-left: 0.5rem;
+
+	&.label-alt {
+		background-color: #55BDCA;
+	}
 }
 
 .linkable-section::before {
@@ -65,10 +69,12 @@ li .highlight pre {
 	position: fixed;
 	width: 100%;
 	background-color: #D8C3A5;
-	.list-group-item{
+
+	.list-group-item {
 		background-color: #D8C3A5;
 		color: #ffffff;
-		&:hover, &:active{
+
+		&:hover, &:active {
 			background-color: #e98074;
 		}
 	}
@@ -86,7 +92,7 @@ li .highlight pre {
 	}
 }
 
-.highlight pre *{
+.highlight pre * {
 	word-wrap: break-word;
 }
 
@@ -179,7 +185,7 @@ li .highlight pre {
 					grid-template-columns: repeat(3, 1fr);
 					grid-gap: 5px;
 					animation: responsiveRow 10s;
-					
+
 					height: 220px;
 					overflow-x: hidden;
 					overflow-y: scroll;
@@ -216,7 +222,7 @@ li .highlight pre {
 }
 
 @keyframes responsiveRow {
-	0%, 100%{
+	0%, 100% {
 		grid-template-columns: repeat(3, 1fr);
 	}
 	35% {

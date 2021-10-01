@@ -26,6 +26,9 @@ header, .header{
 	    padding-left: 8px;
 	    height: $header-height;
 	    text-transform: capitalize;
+			.logo{
+				width: 50px;
+			}
 	    .title{
 	    	padding-left: 8px;
 	    }
